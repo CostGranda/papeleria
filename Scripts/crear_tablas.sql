@@ -1,11 +1,7 @@
-DROP TABLE PRODUCTO_PEDIDO;
 DROP TABLE PRODUCTO_VENTA;
-DROP TABLE PEDIDO;
 DROP TABLE VENTA;
 DROP TABLE CLIENTE;
-DROP TABLE ESTADO;
 DROP TABLE PRODUCTO;
-DROP TABLE PROVEEDOR;
 DROP TABLE VENDEDOR;
 
 CREATE TABLE CLIENTE
@@ -16,20 +12,6 @@ CREATE TABLE CLIENTE
     segundo_apellido  VARCHAR2 (40) ,
     telefono_cli      VARCHAR2 (15),
     correo            VARCHAR2 (40)
-  )
-  tablespace ts_compratodo;
-
-CREATE TABLE ESTADO
-  (
-    codigo_estado NUMBER (5),
-    nombre_estado VARCHAR2 (20)  )
-  tablespace ts_compratodo;
-
-CREATE TABLE PEDIDO
-  (
-    codigo_pedido        NUMBER (5),
-    PROVEEDOR_nit        NUMBER (5),
-    ESTADO_codigo_estado NUMBER (5)
   )
   tablespace ts_compratodo;
 
@@ -44,14 +26,6 @@ CREATE TABLE PRODUCTO
   )
   tablespace ts_compratodo;
 
-CREATE TABLE PRODUCTO_PEDIDO
-  (
-    PRODUCTO_codigo_producto NUMBER (5),
-    PEDIDO_codigo_pedido     NUMBER (5),
-    cantidad                 NUMBER (5),
-    valor_unitario           NUMBER (10)
-  )
-  tablespace ts_compratodo;
 
 CREATE TABLE PRODUCTO_VENTA
   (
@@ -61,18 +35,7 @@ CREATE TABLE PRODUCTO_VENTA
   )
   tablespace ts_compratodo;
 
-CREATE TABLE PROVEEDOR
-  (
-    nit                       NUMBER (5),
-    nombre_proveedor          VARCHAR2 (40),
-    nombre_contacto           VARCHAR2 (40),
-    primer_apellido_contacto  VARCHAR2 (40),
-    segundo_apellido_contacto VARCHAR2 (40) ,
-    telefono_contacto         VARCHAR2 (15),
-    correo_proveedor          VARCHAR2 (40),
-    telefono_proveedor        VARCHAR2 (15)
-  )
-  tablespace ts_compratodo;
+
 
 CREATE TABLE VENDEDOR
   (
