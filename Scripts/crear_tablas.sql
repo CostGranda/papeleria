@@ -54,6 +54,7 @@ CREATE TABLE VENTA
   CREATE TABLE LOGIN
   (
     usuario VARCHAR (15),
-    password VARCHAR (40)
+    password VARCHAR (40),
+    rol VARCHAR (20)
   );
   
