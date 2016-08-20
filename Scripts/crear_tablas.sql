@@ -1,9 +1,7 @@
 CREATE TABLE CLIENTE
   (
     documento_cliente VARCHAR (15),
-    nombre            VARCHAR (40),
-    primer_apellido   VARCHAR (40),
-    segundo_apellido  VARCHAR (40) ,
+    nombre_completo   VARCHAR (40),
     telefono_cli      VARCHAR (15),
     correo            VARCHAR (40)
   );
@@ -31,13 +29,9 @@ CREATE TABLE PRODUCTO_VENTA
 CREATE TABLE VENDEDOR
   (
     documento               VARCHAR (15),
-    nombre                  VARCHAR (40),
-    primer_apellido         VARCHAR (40),
-    segundo_apellido        VARCHAR (40),
-    telefono                VARCHAR (15),
-    celular                 VARCHAR (15),
+    nombre_completo         VARCHAR (40),
+    telefono  				VARCHAR (15),
     correo                  VARCHAR (40),
-    direccion               VARCHAR (40),
     VENDEDOR_documento_jefe VARCHAR(15)
   );
   
