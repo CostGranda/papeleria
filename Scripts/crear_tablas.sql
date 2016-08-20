@@ -1,9 +1,3 @@
-DROP TABLE PRODUCTO_VENTA;
-DROP TABLE VENTA;
-DROP TABLE CLIENTE;
-DROP TABLE PRODUCTO;
-DROP TABLE VENDEDOR;
-
 CREATE TABLE CLIENTE
   (
     documento_cliente VARCHAR (15),
@@ -17,25 +11,22 @@ CREATE TABLE CLIENTE
 
 CREATE TABLE PRODUCTO
   (
-    codigo_producto  numeric (5),
+    codigo_producto  INT (5),
     nombre_producto  VARCHAR (40),
     descripcion      VARCHAR (40) ,
-    precio           numeric (10),
-    existencia_real  numeric (5),
-    disponible_venta numeric (5)
+    precio           NUMERIC (10),
+    existencia_real  NUMERIC (5),
+    disponible_venta NUMERIC (5)
   );
   
-
 
 CREATE TABLE PRODUCTO_VENTA
   (
-    PRODUCTO_codigo_producto numeric (5),
-    VENTA_codigo_venta       numeric (5),
-    cantidad                 numeric (2)
+    PRODUCTO_codigo_producto INT (5),
+    VENTA_codigo_venta       INT (5),
+    cantidad                 NUMERIC (2)
   );
   
-
-
 
 CREATE TABLE VENDEDOR
   (
@@ -53,10 +44,17 @@ CREATE TABLE VENDEDOR
 
 CREATE TABLE VENTA
   (
-    codigo_venta              numeric (5),
+    codigo_venta              INT (5),
     fecha_venta               DATE,
-    valor_total               numeric (10),
+    valor_total               NUMERIC (10),
     VENDEDOR_documento        VARCHAR (15),
     CLIENTE_documento_cliente VARCHAR (15)
+  );
+
+  CREATE TABLE LOGIN
+  (
+    usuario VARCHAR (15),
+    password VARCHAR (40),
+    rol VARCHAR (20)
   );
   
