@@ -22,14 +22,12 @@ ALTER TABLE PRODUCTO_VENTA ADD CONSTRAINT FK_VENTA_codigo_venta FOREIGN KEY ( VE
 
 #Se definen las reglas o contraints necesarias
 #Tabla Cliente
-ALTER TABLE CLIENTE ADD CONSTRAINT NN_nombre_cliente CHECK (nombre IS NOT NULL);
-ALTER TABLE CLIENTE ADD CONSTRAINT NN_primer_apellido_cliente CHECK (primer_apellido IS NOT NULL);
+ALTER TABLE CLIENTE ADD CONSTRAINT NN_nombre_completo CHECK (nombre_completo IS NOT NULL);
 ALTER TABLE CLIENTE ADD CONSTRAINT NN_telefono_cliente CHECK (telefono_cli IS NOT NULL);
 
 #Tabla Producto
 ALTER TABLE PRODUCTO ADD CONSTRAINT NN_nombre_producto CHECK (nombre_producto IS NOT NULL);
 ALTER TABLE PRODUCTO ADD CONSTRAINT NN_precio_producto CHECK (precio > 0);
-ALTER TABLE PRODUCTO ADD CONSTRAINT NN_existencia_real_producto CHECK (existencia_real >= 0);
 ALTER TABLE PRODUCTO ADD CONSTRAINT NN_disponible_venta CHECK (disponible_venta >=0);
 
 #Tabla PRODUCTO_VENTA
@@ -37,11 +35,8 @@ ALTER TABLE PRODUCTO_VENTA ADD CONSTRAINT NN_cantidad_PRODUCTO_VENTA CHECK ( can
 
 #Tabla VENDEDOR
 ALTER TABLE VENDEDOR ADD CONSTRAINT NN_nombre_vendedor CHECK ( nombre IS NOT NULL);
-ALTER TABLE VENDEDOR ADD CONSTRAINT NN_primer_apellido_vendedor CHECK ( primer_apellido IS NOT NULL);
 ALTER TABLE VENDEDOR ADD CONSTRAINT NN_telefono_vendedor CHECK ( telefono IS NOT NULL);
-ALTER TABLE VENDEDOR ADD CONSTRAINT NN_celular_vendedor CHECK ( celular IS NOT NULL);
 ALTER TABLE VENDEDOR ADD CONSTRAINT NN_correo_vendedor CHECK ( correo IS NOT NULL);
-ALTER TABLE VENDEDOR ADD CONSTRAINT NN_direccion_vendedor CHECK ( direccion IS NOT NULL);
 ALTER TABLE VENDEDOR ADD CONSTRAINT NN_VENDEDOR_documento_jefe CHECK ( VENDEDOR_documento_jefe IS NOT NULL);
 
 #Tabla VENTA
