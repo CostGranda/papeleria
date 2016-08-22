@@ -67,7 +67,7 @@ public class frmRegistro extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Password:");
+        jLabel1.setText("Contraseña:");
 
         btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/registerB.png"))); // NOI18N
         btnSignUp.setToolTipText("Sign Up");
@@ -91,13 +91,13 @@ public class frmRegistro extends javax.swing.JFrame {
 
         lblNombre.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("Name:");
+        lblNombre.setText("Nombre:");
 
         txtRUsuario.setBackground(new java.awt.Color(240, 240, 240));
 
         jLabel3.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("User:");
+        jLabel3.setText("Usuario:");
 
         jLabel4.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +109,7 @@ public class frmRegistro extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Confirm Password:");
+        jLabel2.setText("Confirmar contraseña:");
 
         jLabel5.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,7 +175,7 @@ public class frmRegistro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 223, Short.MAX_VALUE)
+                                .addGap(54, 220, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(layout.createSequentialGroup()
