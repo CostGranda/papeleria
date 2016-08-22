@@ -62,11 +62,11 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("User:");
+        jLabel1.setText("Usuario:");
 
         jLabel2.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Password:");
+        jLabel2.setText("Contraseña:");
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/signB.png"))); // NOI18N
         btnAceptar.setToolTipText("Login");
@@ -115,11 +115,11 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Don't have an account?");
+        jLabel3.setText("¡No tiene contraseña?");
 
         btnSignUp.setFont(new java.awt.Font("Papyrus", 0, 15)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(0, 123, 255));
-        btnSignUp.setText("Sign up!");
+        btnSignUp.setText("Registrar");
         btnSignUp.setBorder(null);
         btnSignUp.setBorderPainted(false);
         btnSignUp.setContentAreaFilled(false);
@@ -151,7 +151,7 @@ public class frmLogin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
