@@ -48,7 +48,6 @@ public class ConexionMySQL {
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
-            //Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
