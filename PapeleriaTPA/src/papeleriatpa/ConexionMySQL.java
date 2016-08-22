@@ -37,4 +37,33 @@ public class ConexionMySQL {
         return con;
     }
 
+    public static ResultSet validarAdmin(Connection con) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT Id, Nombre, Apellidos, Edad, Direccion, Telefono, perfil\n"
+                    + "FROM Estudiantes\n"
+                    + "WHERE perfil = 'Admin'";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+            //Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+
+    public static ResultSet validarUsuario(Connection con, String usuario, String clave) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '"
+                    + usuario + "' AND password = '" + clave + "'";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
 }
