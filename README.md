@@ -2,11 +2,11 @@
 
 ## Descripción (Universo del discurso).
 
-En la papelería TPA necesitan tener un balance permanente de lo que tienen almacenado, con sus valores de venta y valor de compra para tener un constante conocimiento de las ganancias netas del día, al mismo tiempo desea mantener un reporte de los clientes que compran; sus productos y cantidad.
+En la papelería TPA necesitan tener un registro permanente de lo que tienen almacenado con sus valores de venta, para tener conocimiento de las ventas del día, al mismo tiempo desea mantener un reporte de los clientes que compran; sus productos y cantidad.
 
 Del producto se necesita la siguiente información: código, nombre del producto, una descripción, existencia real del producto y su precio.
 
-La papelería tiene la información de los vendedores con sus respectivos datos los cuales son: documento, nombre, teléfono y correo electrónico. Los vendedores tienen un jefe inmediato el cual debe ser un vendedor.
+La papelería tiene la información de los vendedores con sus respectivos datos los cuales son: documento, nombre, teléfono y correo electrónico.
 
 Al momento en que un vendedor realiza la venta de un producto, se indica al cliente que puede registrarse en la base de datos; si el cliente acepta se busca en la base de datos y se procede a actualizar o registrar según sea el caso para esto se necesita: documento, nombre, teléfono y correo si tiene.
 De la venta se guarda: el código, nombre del vendedor, fecha y el valor total.
