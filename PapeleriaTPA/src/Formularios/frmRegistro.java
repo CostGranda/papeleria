@@ -42,32 +42,41 @@ public class frmRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtRPassword = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
-        txtRname = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
-        txtRUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtMail = new javax.swing.JTextField();
-        txtRPasswordConf = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        lblUsuario = new javax.swing.JLabel();
+        lblDocumento = new javax.swing.JLabel();
+        txtDocumento = new javax.swing.JTextField();
+        txtPasswordConf = new javax.swing.JPasswordField();
+        lblPassword2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cmbEmail = new javax.swing.JComboBox();
-        txtOthermail = new javax.swing.JTextField();
+        txtOtrocorreol = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        lblCorreo = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        lblTelefono = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sign Up ");
+        setTitle("Registro Vendedor");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        txtRPassword.setBackground(new java.awt.Color(240, 240, 240));
+        txtPassword.setBackground(new java.awt.Color(240, 240, 240));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Contraseña:");
+        lblPassword.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña:");
 
         btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/registerB.png"))); // NOI18N
         btnSignUp.setToolTipText("Sign Up");
@@ -87,43 +96,43 @@ public class frmRegistro extends javax.swing.JFrame {
             }
         });
 
-        txtRname.setBackground(new java.awt.Color(240, 240, 240));
+        txtNombre.setBackground(new java.awt.Color(240, 240, 240));
 
         lblNombre.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
 
-        txtRUsuario.setBackground(new java.awt.Color(240, 240, 240));
+        txtUsuario.setBackground(new java.awt.Color(240, 240, 240));
 
-        jLabel3.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Usuario:");
+        lblUsuario.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("Usuario:");
 
-        jLabel4.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Email:");
+        lblDocumento.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblDocumento.setForeground(new java.awt.Color(255, 255, 255));
+        lblDocumento.setText("Documento:");
 
-        txtMail.setBackground(new java.awt.Color(240, 240, 240));
+        txtDocumento.setBackground(new java.awt.Color(240, 240, 240));
 
-        txtRPasswordConf.setBackground(new java.awt.Color(240, 240, 240));
+        txtPasswordConf.setBackground(new java.awt.Color(240, 240, 240));
 
-        jLabel2.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Confirmar contraseña:");
+        lblPassword2.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblPassword2.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword2.setText("Confirmar contraseña:");
 
         jLabel5.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("@");
 
         cmbEmail.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        cmbEmail.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gmail.com", "outlook.com", "hotmail.com", "yahoo.com", "Other" }));
+        cmbEmail.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gmail.com", "outlook.com", "hotmail.com", "yahoo.com", "Otro" }));
         cmbEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEmailActionPerformed(evt);
             }
         });
 
-        txtOthermail.setEnabled(false);
+        txtOtrocorreol.setEnabled(false);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/rbackB.png"))); // NOI18N
         btnBack.setToolTipText("Go back");
@@ -141,85 +150,123 @@ public class frmRegistro extends javax.swing.JFrame {
             }
         });
 
+        lblCorreo.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreo.setText("Correo:");
+
+        txtCorreo.setBackground(new java.awt.Color(240, 240, 240));
+
+        lblTelefono.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefono.setText("Telefono:");
+
+        txtTelefono.setBackground(new java.awt.Color(240, 240, 240));
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblDocumento)
+                        .addComponent(lblCorreo)
+                        .addComponent(lblNombre)
+                        .addComponent(lblTelefono))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel3))
-                            .addComponent(lblNombre))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRname, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(txtRUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(txtMail))
-                        .addGap(18, 18, 18)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnSignUp)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtRPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCorreo)
+                                .addGap(31, 31, 31))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addComponent(btnBack)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(19, 19, 19)
                                 .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtOthermail, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 220, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(138, 138, 138)
-                                .addComponent(btnSignUp)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtOtrocorreol, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(24, 24, 24)))))
-                .addGap(6, 6, 6))
+                                .addComponent(lblPassword2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUsuario))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(55, 55, 55))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOthermail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDocumento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtRPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCorreo)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrocorreol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSignUp))
-                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsuario))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPassword))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPassword2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTelefono)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 11, Short.MAX_VALUE))))
         );
 
         pack();
@@ -227,15 +274,15 @@ public class frmRegistro extends javax.swing.JFrame {
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         String nombre, correo, usuario, clave;
-        nombre = txtRname.getText();
-        correo = txtMail.getText() + "@";
-        usuario = txtRUsuario.getText();
-        clave = new String(txtRPassword.getPassword());
+        nombre = txtNombre.getText();
+        correo = txtDocumento.getText() + "@";
+        usuario = txtUsuario.getText();
+        clave = new String(txtPassword.getPassword());
         //Si alguno de los campos está vacio muestra un mensaje.
-        if (txtRname.getText().equals("") || txtMail.getText().equals("")
-                || txtRUsuario.getText().equals("") || txtRPassword.getPassword().equals("")
-                || txtRPasswordConf.getPassword().equals("")) {
-            JOptionPane.showMessageDialog(null, "All fields are required.", "Information", JOptionPane.INFORMATION_MESSAGE);
+        if (txtNombre.getText().equals("") || txtDocumento.getText().equals("")
+                || txtUsuario.getText().equals("") || txtPassword.getPassword().equals("")
+                || txtPasswordConf.getPassword().equals("")) {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Information", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         //Concatena el correo para añadir a la db
@@ -253,48 +300,48 @@ public class frmRegistro extends javax.swing.JFrame {
                 correo += "yahoo.com";
                 break;
             case 4:
-                correo += txtOthermail.getText();
+                correo += txtOtrocorreol.getText();
                 break;
         }
 
         LogicaDeNegocio ln = new LogicaDeNegocio();
         //Si el usuario existe muestra un mensaje y limpia el campo.
         if (ln.validarSiExiste(usuario)) {
-            JOptionPane.showMessageDialog(null, "The username '" + txtRUsuario.getText() + "' already exists, choose a different.");
-            txtRUsuario.requestFocus();
-            txtRUsuario.setText("");
+            JOptionPane.showMessageDialog(null, "El usuario '" + txtUsuario.getText() + "' ya existe,elija uno diferente.");
+            txtUsuario.requestFocus();
+            txtUsuario.setText("");
             return;
         }
 
-        String password = new String(txtRPassword.getPassword());
-        String confirmacion = new String(txtRPasswordConf.getPassword());
+        String password = new String(txtPassword.getPassword());
+        String confirmacion = new String(txtPasswordConf.getPassword());
         //Si las contraseñas son diferentes.
         if (!password.equals(confirmacion)) {
-            JOptionPane.showMessageDialog(null, "The passwords must match", "Información", JOptionPane.ERROR_MESSAGE);
-            txtRPassword.setText("");
-            txtRPasswordConf.setText("");
+            JOptionPane.showMessageDialog(null, "Las contraseñas deben coincidir", "Información", JOptionPane.ERROR_MESSAGE);
+            txtPassword.setText("");
+            txtPasswordConf.setText("");
             return;
         }
         //Inserta el usuario creado
         ln.insertarRegistros(nombre, correo, usuario, password, 0);
-        JOptionPane.showMessageDialog(null, "Account created successfully!");
+        JOptionPane.showMessageDialog(null, "¡Cuenta creada satisfactoriamente!");
 
         //Crea el dialogo de confimación
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want go to login now?", "Account created!", dialogButton);
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea iniciar sesión ahora?", "¡Cuenta creada!", dialogButton);
         if (dialogResult == JOptionPane.YES_OPTION) {
             formularios.frmLogin login = new formularios.frmLogin();
             this.setVisible(false);
             login.setVisible(true);
         } else {
             if (dialogResult == JOptionPane.NO_OPTION) {
-                txtRname.setText("");
-                txtMail.setText("");
-                txtRUsuario.setText("");
-                txtRPassword.setText("");
-                txtRPasswordConf.setText("");
-                txtOthermail.setText("");
-                txtOthermail.setEnabled(false);
+                txtNombre.setText("");
+                txtDocumento.setText("");
+                txtUsuario.setText("");
+                txtPassword.setText("");
+                txtPasswordConf.setText("");
+                txtOtrocorreol.setText("");
+                txtOtrocorreol.setEnabled(false);
                 cmbEmail.setSelectedIndex(0);
                 this.requestFocusInWindow(true);
             } else {
@@ -307,8 +354,8 @@ public class frmRegistro extends javax.swing.JFrame {
     private void cmbEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmailActionPerformed
         //Si selecciona la opcion 'Other' habilita el campo y pone el foco
         if (cmbEmail.getSelectedIndex() == 4) {
-            txtOthermail.setEnabled(true);
-            txtOthermail.requestFocus();
+            txtOtrocorreol.setEnabled(true);
+            txtOtrocorreol.requestFocus();
         }
     }//GEN-LAST:event_cmbEmailActionPerformed
 
@@ -318,6 +365,14 @@ public class frmRegistro extends javax.swing.JFrame {
         formularios.frmLogin login = new formularios.frmLogin();
         login.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,17 +413,21 @@ public class frmRegistro extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JComboBox cmbEmail;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JTextField txtMail;
-    private javax.swing.JTextField txtOthermail;
-    private javax.swing.JPasswordField txtRPassword;
-    private javax.swing.JPasswordField txtRPasswordConf;
-    private javax.swing.JTextField txtRUsuario;
-    private javax.swing.JTextField txtRname;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPassword2;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDocumento;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtOtrocorreol;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPasswordConf;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
