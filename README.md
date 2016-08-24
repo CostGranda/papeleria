@@ -2,7 +2,7 @@
 
 ## Descripción (Universo del discurso).
 
-En la papelería TPA necesitan tener un registro permanente de lo que tienen almacenado con sus valores de venta, para tener conocimiento de las ventas del día, al mismo tiempo desea mantener un reporte de los clientes que compran; sus productos y cantidad.
+En la papelería TPA necesitan tener un registro permanente de lo que tienen almacenado con sus valores de venta, para tener conocimiento de las ventas del día.
 
 Del producto se necesita la siguiente información: código, nombre del producto, una descripción, existencia real del producto y su precio.
 
