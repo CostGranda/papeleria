@@ -16,4 +16,19 @@ import java.sql.Statement;
  */
 public class Vendedores {
     
+        public static int insertarRegistros(Connection con, String documento,
+            String nombre_completo, String telefono, String correo, String VENDEDOR_documento_jefe) {
+        Statement st;
+        int cantfilias = 0;
+        try {
+            st = con.createStatement();
+            String strSql;
+            strSql = "INSERT INTO `Papeleria`.`VENDEDOR` VALUES ( '" + documento + "', '" + nombre_completo + "',"
+                    + "'" + telefono + "', '" + correo + "', '" + VENDEDOR_documento_jefe + "');";
+            cantfilias = st.executeUpdate(strSql);
+        } catch (SQLException ex) {
+            System.out.println("\nError al INSERTAR: " + ex);
+        }
+        return cantfilias;
+    }
 }
