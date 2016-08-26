@@ -78,7 +78,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña:");
 
-        btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/registerB.png"))); // NOI18N
+        btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/registerB.png"))); // NOI18N
         btnSignUp.setToolTipText("Sign Up");
         btnSignUp.setBorder(null);
         btnSignUp.setBorderPainted(false);
@@ -86,8 +86,8 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         btnSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSignUp.setFocusPainted(false);
         btnSignUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSignUp.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/registerC.png"))); // NOI18N
-        btnSignUp.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/media/registerA.png"))); // NOI18N
+        btnSignUp.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/registerC.png"))); // NOI18N
+        btnSignUp.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/registerA.png"))); // NOI18N
         btnSignUp.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnSignUp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
 
         txtOtrocorreol.setEnabled(false);
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/rbackB.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/rbackB.png"))); // NOI18N
         btnBack.setToolTipText("Go back");
         btnBack.setBorder(null);
         btnBack.setBorderPainted(false);
@@ -142,8 +142,8 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.setFocusPainted(false);
         btnBack.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBack.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/rbackC.png"))); // NOI18N
-        btnBack.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/media/rbackA.png"))); // NOI18N
+        btnBack.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/rbackC.png"))); // NOI18N
+        btnBack.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/rbackA.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -201,7 +201,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(34, 34, 34)
                                         .addComponent(btnBack)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,7 +266,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 11, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();

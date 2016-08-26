@@ -66,7 +66,7 @@
                                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="32" max="32767" attributes="0"/>
+                              <EmptySpace pref="29" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -154,7 +154,7 @@
                           <Component id="btnSignUp" max="32767" attributes="0"/>
                           <Component id="btnBack" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -186,7 +186,7 @@
     <Component class="javax.swing.JButton" name="btnSignUp">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/registerB.png"/>
+          <Image iconType="3" name="/Vista/media/registerB.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Sign Up"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -200,10 +200,10 @@
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/registerC.png"/>
+          <Image iconType="3" name="/Vista/media/registerC.png"/>
         </Property>
         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/registerA.png"/>
+          <Image iconType="3" name="/Vista/media/registerA.png"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="3"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
@@ -322,7 +322,7 @@
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/rbackB.png"/>
+          <Image iconType="3" name="/Vista/media/rbackB.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Go back"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -336,10 +336,10 @@
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/rbackC.png"/>
+          <Image iconType="3" name="/Vista/media/rbackC.png"/>
         </Property>
         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/media/rbackA.png"/>
+          <Image iconType="3" name="/Vista/media/rbackA.png"/>
         </Property>
       </Properties>
       <Events>

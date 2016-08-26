@@ -66,7 +66,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña:");
 
-        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/signB.png"))); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/signB.png"))); // NOI18N
         btnAceptar.setToolTipText("Login");
         btnAceptar.setBorder(null);
         btnAceptar.setBorderPainted(false);
@@ -75,8 +75,8 @@ public class frmLogin extends javax.swing.JFrame {
         btnAceptar.setFocusPainted(false);
         btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAceptar.setIconTextGap(-3);
-        btnAceptar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/signC.png"))); // NOI18N
-        btnAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/media/signA.png"))); // NOI18N
+        btnAceptar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/signC.png"))); // NOI18N
+        btnAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/signA.png"))); // NOI18N
         btnAceptar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnAceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/exitB.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/exitB.png"))); // NOI18N
         btnCancelar.setToolTipText("Exit");
         btnCancelar.setBorder(null);
         btnCancelar.setBorderPainted(false);
@@ -94,8 +94,8 @@ public class frmLogin extends javax.swing.JFrame {
         btnCancelar.setFocusPainted(false);
         btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCancelar.setIconTextGap(-2);
-        btnCancelar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/exitC.png"))); // NOI18N
-        btnCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/media/exitA.png"))); // NOI18N
+        btnCancelar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/exitC.png"))); // NOI18N
+        btnCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/exitA.png"))); // NOI18N
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
