@@ -68,11 +68,6 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         setResizable(false);
 
         txtPassword.setBackground(new java.awt.Color(240, 240, 240));
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
 
         lblPassword.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,11 +156,6 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         lblTelefono.setText("Telefono:");
 
         txtTelefono.setBackground(new java.awt.Color(240, 240, 240));
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,13 +263,16 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        String nombre, correo, usuario, clave;
+        String nombre, documento, telefono, correo, usuario, clave;
         nombre = txtNombre.getText();
-        correo = txtDocumento.getText() + "@";
+        documento = txtDocumento.getText();
+        telefono = txtTelefono.getText();
+        correo = txtCorreo.getText() + "@";
         usuario = txtUsuario.getText();
         clave = new String(txtPassword.getPassword());
         //Si alguno de los campos está vacio muestra un mensaje.
         if (txtNombre.getText().equals("") || txtDocumento.getText().equals("")
+                || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
                 || txtUsuario.getText().equals("") || txtPassword.getPassword().equals("")
                 || txtPasswordConf.getPassword().equals("")) {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -306,7 +299,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
 
         LogicaDeNegocio ln = new LogicaDeNegocio();
         //Si el usuario existe muestra un mensaje y limpia el campo.
-        if (ln.validarSiExiste(usuario)) {
+        if (ln.validarSiexiste(usuario)) {
             JOptionPane.showMessageDialog(null, "El usuario '" + txtUsuario.getText() + "' ya existe,elija uno diferente.");
             txtUsuario.requestFocus();
             txtUsuario.setText("");
@@ -322,8 +315,9 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
             txtPasswordConf.setText("");
             return;
         }
-        //Inserta el usuario creado
-        ln.insertarRegistros(nombre, correo, usuario, password, 0);
+        //Inserta los datos del vendedor y luego el login que usará
+        ln.insertarVendedor(documento, nombre, telefono, correo);
+        ln.insertarLogin(usuario, clave);
         JOptionPane.showMessageDialog(null, "¡Cuenta creada satisfactoriamente!");
 
         //Crea el dialogo de confimación
@@ -337,6 +331,8 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
             if (dialogResult == JOptionPane.NO_OPTION) {
                 txtNombre.setText("");
                 txtDocumento.setText("");
+                txtCorreo.setText("");
+                txtTelefono.setText("");
                 txtUsuario.setText("");
                 txtPassword.setText("");
                 txtPasswordConf.setText("");
@@ -352,7 +348,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void cmbEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmailActionPerformed
-        //Si selecciona la opcion 'Other' habilita el campo y pone el foco
+        //Si selecciona la opcion 'Otro' habilita el campo y pone el foco
         if (cmbEmail.getSelectedIndex() == 4) {
             txtOtrocorreol.setEnabled(true);
             txtOtrocorreol.requestFocus();
@@ -365,14 +361,6 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         Vista.Formularios.frmLogin login = new Vista.Formularios.frmLogin();
         login.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -168,9 +168,6 @@
           <Color blue="f0" green="f0" red="f0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPassword">
       <Properties>
@@ -381,9 +378,6 @@
           <Color blue="f0" green="f0" red="f0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefonoActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

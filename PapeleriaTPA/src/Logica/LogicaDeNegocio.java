@@ -24,11 +24,12 @@ public class LogicaDeNegocio {
     public LogicaDeNegocio() {
         con = ConexionMySQL.establecerConexionSQL();
     }
-    
+
     /**
      * Valida el usuario o vendedor que inicia sesión para controlar las ventas.
-     * @param usuario 
-     * @param clave 
+     *
+     * @param usuario
+     * @param clave
      * @return boolean
      */
     public boolean validarLoginUsuario(String usuario, String clave) {
@@ -43,6 +44,37 @@ public class LogicaDeNegocio {
         }
         return b;
     }
-    
 
+    /**
+     * Inserta nuevos registros en la tabla Vendedor de la base de datos.
+     *
+     * @param documento Es el documento del vendedor.
+     * @param nombre_completo Nombre con apellidos incluidos.
+     * @param telefono Puede ser telefono fijo, se recomienda móvil.
+     * @param correo
+     * @param VENDEDOR_documento_jefe - Jefe inmediato del nuevo vendedor.
+     */
+    public void insertarVendedor(String documento, String nombre_completo,
+            String telefono, String correo) {
+        int cant = Vendedores.insertarRegistros(con, documento, nombre_completo, telefono, correo);
+        System.out.println("Cantidad de registros insertados: " + cant);
+    }
+
+    public void insertarLogin(String usuario, String clave) {
+        int cant = Usuarios.insertarLogin(con, usuario, clave);
+        System.out.println("Cantidad de registros insertados: " + cant);
+    }
+
+    public boolean validarSiexiste(String usuario) {
+        boolean b = false;
+        ResultSet rs = Vendedores.validarSiExiste(con, usuario);
+        try {
+            if (rs.next()) {
+                b = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return b;
+    }
 }
