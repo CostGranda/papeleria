@@ -30,8 +30,7 @@ CREATE TABLE VENDEDOR
     documento               VARCHAR (15),
     nombre_completo         VARCHAR (40),
     telefono  				      VARCHAR (15),
-    correo                  VARCHAR (40),
-    VENDEDOR_documento_jefe VARCHAR(15)
+    correo                  VARCHAR (40)
   );
 
 
