@@ -21,7 +21,7 @@ public class Admin {
         try {
             st = con.createStatement();
             String strSql = "SELECT Id, Nombre, Apellidos, Edad, Direccion, Telefono, perfil\n"
-                    + "FROM Estudiantes\n"
+                    + "FROM Estudiantes\n"                 
                     + "WHERE perfil = 'Admin'";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {

@@ -16,12 +16,12 @@ import Logica.LogicaDeNegocio;
  *
  * @author Jorge L Granda. <jorgelugra at gmail.com>
  */
-public class frmRegistroVendedor extends javax.swing.JFrame {
+public class frmRegistroCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form frmRegistro
      */
-    public frmRegistroVendedor() {
+    public frmRegistroCliente() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Vista/media/signup.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false);
@@ -42,17 +42,11 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtPassword = new javax.swing.JPasswordField();
-        lblPassword = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
-        lblUsuario = new javax.swing.JLabel();
         lblDocumento = new javax.swing.JLabel();
         txtDocumento = new javax.swing.JTextField();
-        txtPasswordConf = new javax.swing.JPasswordField();
-        lblPassword2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cmbEmail = new javax.swing.JComboBox();
         txtOtrocorreol = new javax.swing.JTextField();
@@ -66,12 +60,6 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         setTitle("Registro Vendedor");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
-
-        txtPassword.setBackground(new java.awt.Color(240, 240, 240));
-
-        lblPassword.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Contraseña:");
 
         btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/registerB.png"))); // NOI18N
         btnSignUp.setToolTipText("Sign Up");
@@ -97,23 +85,11 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
 
-        txtUsuario.setBackground(new java.awt.Color(240, 240, 240));
-
-        lblUsuario.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsuario.setText("Usuario:");
-
         lblDocumento.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
         lblDocumento.setForeground(new java.awt.Color(255, 255, 255));
         lblDocumento.setText("Documento:");
 
         txtDocumento.setBackground(new java.awt.Color(240, 240, 240));
-
-        txtPasswordConf.setBackground(new java.awt.Color(240, 240, 240));
-
-        lblPassword2.setFont(new java.awt.Font("Papyrus", 0, 13)); // NOI18N
-        lblPassword2.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword2.setText("Confirmar contraseña:");
 
         jLabel5.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,25 +168,11 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                                         .addGap(34, 34, 34)
                                         .addComponent(btnBack)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtOtrocorreol, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblPassword2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPassword)
-                                    .addComponent(lblUsuario))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtOtrocorreol, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))))
         );
         layout.setVerticalGroup(
@@ -234,29 +196,14 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                         .addComponent(cmbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtOtrocorreol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUsuario))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPasswordConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblTelefono)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTelefono)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -268,14 +215,12 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         documento = txtDocumento.getText();
         telefono = txtTelefono.getText();
         correo = txtCorreo.getText() + "@";
-        usuario = txtUsuario.getText();
-        clave = new String(txtPassword.getPassword());
+        
+        
         //Si alguno de los campos está vacio muestra un mensaje.
         if (txtNombre.getText().equals("") || txtDocumento.getText().equals("")
-                || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
-                || txtUsuario.getText().equals("") || txtPassword.getPassword().equals("")
-                || txtPasswordConf.getPassword().equals("")) {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Information", JOptionPane.INFORMATION_MESSAGE);
+                || txtTelefono.getText().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Informaciòn", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         //Concatena el correo para añadir a la db
@@ -299,25 +244,15 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
 
         LogicaDeNegocio ln = new LogicaDeNegocio();
         //Si el usuario existe muestra un mensaje y limpia el campo.
-        if (ln.validarSiexisteUsuarioVendedor(usuario)) {
-            JOptionPane.showMessageDialog(null, "El usuario '" + txtUsuario.getText() + "' ya existe,elija uno diferente.");
-            txtUsuario.requestFocus();
-            txtUsuario.setText("");
+        if (ln.validarSiExisteCliente(documento)) {
+            JOptionPane.showMessageDialog(null, "El usuario '" + txtDocumento.getText() + "' ya existe,elija uno diferente.");
+            txtDocumento.requestFocus();
+            txtDocumento.setText("");
             return;
         }
 
-        String password = new String(txtPassword.getPassword());
-        String confirmacion = new String(txtPasswordConf.getPassword());
-        //Si las contraseñas son diferentes.
-        if (!password.equals(confirmacion)) {
-            JOptionPane.showMessageDialog(null, "Las contraseñas deben coincidir", "Información", JOptionPane.ERROR_MESSAGE);
-            txtPassword.setText("");
-            txtPasswordConf.setText("");
-            return;
-        }
         //Inserta los datos del vendedor y luego el login que usará
         ln.insertarVendedor(documento, nombre, telefono, correo);
-        ln.insertarLogin(usuario, clave);
         JOptionPane.showMessageDialog(null, "¡Cuenta creada satisfactoriamente!");
 
         //Crea el dialogo de confimación
@@ -333,9 +268,6 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                 txtDocumento.setText("");
                 txtCorreo.setText("");
                 txtTelefono.setText("");
-                txtUsuario.setText("");
-                txtPassword.setText("");
-                txtPasswordConf.setText("");
                 txtOtrocorreol.setText("");
                 txtOtrocorreol.setEnabled(false);
                 cmbEmail.setSelectedIndex(0);
@@ -379,21 +311,23 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmRegistroVendedor().setVisible(true);
+                new frmRegistroCliente().setVisible(true);
             }
         });
     }
@@ -406,17 +340,11 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblPassword2;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtOtrocorreol;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JPasswordField txtPasswordConf;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

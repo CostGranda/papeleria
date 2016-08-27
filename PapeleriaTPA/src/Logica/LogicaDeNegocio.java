@@ -25,16 +25,30 @@ public class LogicaDeNegocio {
         con = ConexionMySQL.establecerConexionSQL();
     }
 
+
     /**
-     * Valida el usuario o vendedor que inicia sesión para controlar las ventas.
+     * Inserta nuevos registros en la tabla Vendedor de la base de datos.
      *
-     * @param usuario
-     * @param clave
-     * @return boolean
+     * @param documento Es el documento del vendedor.
+     * @param nombre_completo Nombre con apellidos incluidos.
+     * @param telefono Puede ser telefono fijo, se recomienda móvil.
+     * @param correo
      */
-    public boolean validarLoginUsuario(String usuario, String clave) {
+    public void insertarVendedor(String documento, String nombre_completo,
+            String telefono, String correo) {
+        int cant = Vendedores.insertarVendedor(con, documento, nombre_completo, telefono, correo);
+        System.out.println("Cantidad de registros insertados: " + cant);
+    }
+
+   public void insertarCliente(String documento, String nombre_completo,
+            String telefono, String correo) {
+        int cant = Clientes.insertarCliente(con, documento, nombre_completo, telefono, correo);
+        System.out.println("Cantidad de registros insertados: " + cant);
+    }
+
+    public boolean validarSiexisteUsuarioVendedor(String usuario) {
         boolean b = false;
-        ResultSet rs = Usuarios.validarUsuario(con, usuario, clave);
+        ResultSet rs = Vendedores.validarSiExisteUsuarioVendedor(con, usuario);
         try {
             if (rs.next()) {
                 b = true;
@@ -45,29 +59,9 @@ public class LogicaDeNegocio {
         return b;
     }
 
-    /**
-     * Inserta nuevos registros en la tabla Vendedor de la base de datos.
-     *
-     * @param documento Es el documento del vendedor.
-     * @param nombre_completo Nombre con apellidos incluidos.
-     * @param telefono Puede ser telefono fijo, se recomienda móvil.
-     * @param correo
-     * @param VENDEDOR_documento_jefe - Jefe inmediato del nuevo vendedor.
-     */
-    public void insertarVendedor(String documento, String nombre_completo,
-            String telefono, String correo) {
-        int cant = Vendedores.insertarRegistros(con, documento, nombre_completo, telefono, correo);
-        System.out.println("Cantidad de registros insertados: " + cant);
-    }
-
-    public void insertarLogin(String usuario, String clave) {
-        int cant = Usuarios.insertarLogin(con, usuario, clave);
-        System.out.println("Cantidad de registros insertados: " + cant);
-    }
-
-    public boolean validarSiexiste(String usuario) {
+    public boolean validarSiExisteCliente(String documento) {
         boolean b = false;
-        ResultSet rs = Vendedores.validarSiExiste(con, usuario);
+        ResultSet rs = Clientes.validarSiExisteCliente(con, documento);
         try {
             if (rs.next()) {
                 b = true;
