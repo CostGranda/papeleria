@@ -14,15 +14,15 @@ import java.sql.Statement;
  *
  * @author sebgv_000
  */
-public class Usuarios {
+public class Clientes {
 
-    public static ResultSet validarUsuario(Connection con, String usuario, String clave) {
+    public static ResultSet validarSiExisteCliente(Connection con, String documento) {
         ResultSet rs = null;
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '"
-                    + usuario + "' AND password = '" + clave + "'";
+            String strSql = "SELECT 1 FROM CLIENTES WHERE documento = '"
+                    + documento + "';";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
@@ -30,13 +30,15 @@ public class Usuarios {
         return rs;
     }
 
-    public static int insertarLogin(Connection con, String usuario, String clave) {
+    public static int insertarCliente(Connection con, String documento, String nombre_completo,
+            String telefono, String correo) {
         Statement st;
         int cantfilias = 0;
         try {
             st = con.createStatement();
             String strSql;
-            strSql = "INSERT INTO `Papeleria`.`LOGIN` VALUES ('"+usuario+"','"+clave+"','vendedor');";
+            strSql = "INSERT INTO `Papeleria`.`CLIENTES` VALUES ( '" + documento + "', '" + nombre_completo + "',"
+                    + "'" + telefono + "', '" + correo + "');";
             cantfilias = st.executeUpdate(strSql);
         } catch (SQLException ex) {
             System.out.println("\nError al INSERTAR: " + ex);
