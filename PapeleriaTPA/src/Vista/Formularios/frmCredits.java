@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Jorge L Granda <jorgelugra at gmail.com>
+ * @author Jorge L Granda
  */
 public class frmCredits extends javax.swing.JFrame {
 

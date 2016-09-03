@@ -14,7 +14,7 @@ import Logica.LogicaDeNegocio;
 
 /**
  *
- * @author Jorge L Granda. <jorgelugra at gmail.com>
+ * @author Jorge L Granda. 
  */
 public class frmRegistroVendedor extends javax.swing.JFrame {
 
@@ -317,7 +317,7 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
         }
         //Inserta los datos del vendedor y luego el login que usará
         ln.insertarVendedor(documento, nombre, telefono, correo);
-        ln.insertarLogin(usuario, clave);
+        ln.insertarLoginVendedor(usuario, clave);
         JOptionPane.showMessageDialog(null, "¡Cuenta creada satisfactoriamente!");
 
         //Crea el dialogo de confimación
@@ -356,10 +356,10 @@ public class frmRegistroVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbEmailActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // Vuelve al login
+        // Vuelve al formulario principal
         dispose();
-        Vista.Formularios.frmLogin login = new Vista.Formularios.frmLogin();
-        login.setVisible(true);
+        Vista.Formularios.frmRegistroVenta principal = new Vista.Formularios.frmRegistroVenta();
+        principal.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

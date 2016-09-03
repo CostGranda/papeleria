@@ -58,10 +58,10 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         lblRNombreVendedor = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mniVendedor = new javax.swing.JMenuItem();
+        mniProducto = new javax.swing.JMenuItem();
+        mniCliente = new javax.swing.JMenuItem();
+        mniSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -105,7 +105,12 @@ public class frmRegistroVenta extends javax.swing.JFrame {
 
         btnEliminar.setText("x");
 
-        btnSalir.setText("Salir");
+        btnSalir.setText("Cerrar sesión");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         btnConfirmar.setText("Confirmar venta");
 
@@ -115,22 +120,32 @@ public class frmRegistroVenta extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setText("Vendedores");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mniVendedor.setText("Añadir vendedor");
+        mniVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mniVendedorActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(mniVendedor);
 
-        jMenuItem2.setText("Productos");
-        jMenu1.add(jMenuItem2);
+        mniProducto.setText("Añadir productos");
+        jMenu1.add(mniProducto);
 
-        jMenuItem3.setText("Añadir cliente");
-        jMenu1.add(jMenuItem3);
+        mniCliente.setText("Añadir cliente");
+        mniCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniCliente);
 
-        jMenuItem4.setText("Salir");
-        jMenu1.add(jMenuItem4);
+        mniSalir.setText("Salir");
+        mniSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniSalir);
 
         jMenuBar1.add(jMenu1);
 
@@ -154,38 +169,36 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                             .addComponent(lblDocumento)
                             .addComponent(lblProducto)
                             .addComponent(lblPrecio)
-                            .addComponent(lblTotal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblTotal)))
+                    .addComponent(btnSalir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDocumento)
+                            .addComponent(cmbProducto, 0, 100, Short.MAX_VALUE))
+                        .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDocumento)
-                                    .addComponent(cmbProducto, 0, 100, Short.MAX_VALUE))
-                                .addGap(48, 48, 48)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblCantidad)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblNombreVendedor))
+                                        .addComponent(lblCantidad)
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnAgregar)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnEliminar))
-                                            .addComponent(lblRNombreVendedor)))
+                                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNombreVendedor))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(61, 61, 61)
-                                        .addComponent(btnConfirmar))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblRTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblRPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnSalir)))
+                                        .addComponent(btnAgregar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEliminar))
+                                    .addComponent(lblRNombreVendedor)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(btnConfirmar))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblRTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblRPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -214,19 +227,41 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotal)
                     .addComponent(lblRTotal))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir)
-                    .addComponent(btnConfirmar))
-                .addGap(31, 31, 31))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(btnConfirmar)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalir)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void mniVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniVendedorActionPerformed
+        frmRegistroVendedor regven = new frmRegistroVendedor();
+        regven.setVisible(true);
+    }//GEN-LAST:event_mniVendedorActionPerformed
+
+    private void mniClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniClienteActionPerformed
+        frmRegistroCliente regcli = new frmRegistroCliente();
+        this.dispose();
+        regcli.setVisible(true);
+    }//GEN-LAST:event_mniClienteActionPerformed
+
+    private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_mniSalirActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        frmLogin login = new frmLogin();
+        this.dispose();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,10 +309,6 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblNombreVendedor;
@@ -287,6 +318,10 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     private javax.swing.JLabel lblRPrecio;
     private javax.swing.JLabel lblRTotal;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JMenuItem mniCliente;
+    private javax.swing.JMenuItem mniProducto;
+    private javax.swing.JMenuItem mniSalir;
+    private javax.swing.JMenuItem mniVendedor;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDocumento;
     // End of variables declaration//GEN-END:variables

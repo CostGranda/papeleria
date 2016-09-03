@@ -14,7 +14,7 @@ import Logica.LogicaDeNegocio;
 
 /**
  *
- * @author Jorge L Granda. <jorgelugra at gmail.com>
+ * @author Jorge L Granda.
  */
 public class frmRegistroCliente extends javax.swing.JFrame {
 
@@ -215,11 +215,10 @@ public class frmRegistroCliente extends javax.swing.JFrame {
         documento = txtDocumento.getText();
         telefono = txtTelefono.getText();
         correo = txtCorreo.getText() + "@";
-        
-        
+
         //Si alguno de los campos está vacio muestra un mensaje.
         if (txtNombre.getText().equals("") || txtDocumento.getText().equals("")
-                || txtTelefono.getText().equals("") ) {
+                || txtTelefono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Informaciòn", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
@@ -243,39 +242,22 @@ public class frmRegistroCliente extends javax.swing.JFrame {
         }
 
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        //Si el usuario existe muestra un mensaje y limpia el campo.
+        //Si el cliente existe muestra un mensaje y limpia el campo.
         if (ln.validarSiExisteCliente(documento)) {
-            JOptionPane.showMessageDialog(null, "El usuario '" + txtDocumento.getText() + "' ya existe,elija uno diferente.");
+            JOptionPane.showMessageDialog(null, "El cliente '" + txtDocumento.getText() + "' ya está registrado.");
             txtDocumento.requestFocus();
             txtDocumento.setText("");
             return;
         }
 
-        //Inserta los datos del vendedor y luego el login que usará
-        ln.insertarVendedor(documento, nombre, telefono, correo);
-        JOptionPane.showMessageDialog(null, "¡Cuenta creada satisfactoriamente!");
-
-        //Crea el dialogo de confimación
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea iniciar sesión ahora?", "¡Cuenta creada!", dialogButton);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            Vista.Formularios.frmLogin login = new Vista.Formularios.frmLogin();
-            this.setVisible(false);
-            login.setVisible(true);
-        } else {
-            if (dialogResult == JOptionPane.NO_OPTION) {
-                txtNombre.setText("");
-                txtDocumento.setText("");
-                txtCorreo.setText("");
-                txtTelefono.setText("");
-                txtOtrocorreol.setText("");
-                txtOtrocorreol.setEnabled(false);
-                cmbEmail.setSelectedIndex(0);
-                this.requestFocusInWindow(true);
-            } else {
-                this.dispose();
-            }
-        }
+        //Inserta los datos del cliente.
+        ln.insertarCliente(documento, nombre, telefono, correo);
+        JOptionPane.showMessageDialog(null, "¡Cliente registrado con éxito!");
+        
+        Vista.Formularios.frmRegistroVenta principal = new Vista.Formularios.frmRegistroVenta();
+        this.setVisible(false);
+        principal.setVisible(true);
+    
 
     }//GEN-LAST:event_btnSignUpActionPerformed
 
@@ -288,10 +270,10 @@ public class frmRegistroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbEmailActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // Vuelve al login
+        // Vuelve al formulario principal
         dispose();
-        Vista.Formularios.frmLogin login = new Vista.Formularios.frmLogin();
-        login.setVisible(true);
+        Vista.Formularios.frmRegistroVenta principal = new Vista.Formularios.frmRegistroVenta();
+        principal.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
@@ -308,16 +290,28 @@ public class frmRegistroCliente extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmRegistroCliente.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
