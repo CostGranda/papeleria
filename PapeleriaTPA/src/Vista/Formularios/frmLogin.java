@@ -14,7 +14,7 @@ import Logica.LogicaDeNegocio;
 
 /**
  *
- * @author Jorge L Granda. <jorgelugra at gmail.com>
+ * @author Jorge L Granda. 
  */
 public class frmLogin extends javax.swing.JFrame {
 
@@ -23,6 +23,9 @@ public class frmLogin extends javax.swing.JFrame {
      */
     public static String usuarioActual;
 
+    /**
+     * Se carga la imagen de fondo, y los iconos del jframe.
+     */
     public frmLogin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -156,9 +159,8 @@ public class frmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
         String user = txtUser.getText();
         String password = new String(txtPassword.getPassword());
         if (user.equals("")) {
@@ -171,7 +173,7 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        if (!ln.validarLoginCliente(user, password)) {
+        if (!ln.validarLoginVendedor(user, password)) {
             JOptionPane.showMessageDialog(this, "Usuario o clave no valida");
             txtUser.setText("");
             txtPassword.setText("");
@@ -179,10 +181,9 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
         usuarioActual = txtUser.getText();
-//        ln.cerrarcon();
-        //Formularios.FrmPrincipal principal = new Formularios.FrmPrincipal();
+        frmRegistroVenta principal = new frmRegistroVenta();
         this.setVisible(false);
-        //principal.setVisible(true);
+        principal.setVisible(true);
 
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -191,7 +192,6 @@ public class frmLogin extends javax.swing.JFrame {
         this.dispose();
         Vista.Formularios.frmCredits creditos = new Vista.Formularios.frmCredits();
         creditos.setVisible(true);
-//        System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
