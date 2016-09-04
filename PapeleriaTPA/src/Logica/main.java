@@ -5,6 +5,8 @@
  */
 package Logica;
 
+import Vista.Formularios.frmLogin;
+
 /**
  *
  * @author Jorge L Granda.
@@ -16,7 +18,8 @@ public class main {
      */
     public static void main(String[] args) {
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        
+        frmLogin inicio = new frmLogin();
+        inicio.setVisible(true);
     }
     
 }
