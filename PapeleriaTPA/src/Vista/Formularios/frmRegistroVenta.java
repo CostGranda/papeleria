@@ -139,6 +139,11 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
         btnConfirmar.setText("Confirmar venta");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         lblRNombreVendedor.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
@@ -221,6 +226,10 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         Producto eliminar = new Producto();
         eliminar.eliminarFinal();
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
      * @param args the command line arguments

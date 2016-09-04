@@ -40,8 +40,4 @@ public class ConexionMySQL {
         }
         return con;
     }
-
-    
-
-    
 }

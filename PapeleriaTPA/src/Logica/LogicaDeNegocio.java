@@ -85,6 +85,19 @@ public class LogicaDeNegocio {
         }
         return b;
     }
+    
+    public boolean validarLoginAdmin(String usuario, String clave) {
+        boolean b = false;
+        ResultSet rs = Vendedores.validarLoginAdmin(con, usuario, clave);
+        try {
+            if (rs.next()) {
+                b = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return b;
+    }
 
     /**
      * Registra un nuevo cliente en la BD, se requieren los mismos datos que un vendedor.
