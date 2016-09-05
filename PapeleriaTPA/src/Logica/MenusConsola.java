@@ -28,20 +28,12 @@ public class MenusConsola {
                 + "******************");
         usuario = teclado.nextLine();
         System.out.println("****************\n"
-                           +"*  Contraseña: *\n"
-                           +"****************");
+                + "*  Contraseña: *\n"
+                + "****************");
         password = teclado.nextLine();
 
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        if ("admin".equals(usuario)) {
-            if (ln.validarLoginAdmin(usuario, password)) {
-                admin();
-            } else {
-                System.out.println("Usuario o contraseña invalidos,vuelve a ingresarlos");
-                Login();
-            }
-
-        } else if (ln.validarLoginVendedor(usuario, password)) {
+        if (ln.validarLoginVendedor(usuario, password)) {
             vendedor();
         } else {
             System.out.println("Usuario o contraseña invalidos,vuelve a ingresarlos");
@@ -215,7 +207,7 @@ public class MenusConsola {
         }
         System.out.println("¿Desea comprar otro producto?");
         opcionInsertar = teclado.nextLine();
-        while("si".equals(opcionInsertar)) {
+        while ("si".equals(opcionInsertar)) {
             System.out.println("Producto: ");
             producto = teclado.nextLine();
             //precio = lo que sea;
@@ -226,7 +218,7 @@ public class MenusConsola {
             System.out.println("¿Desea comprar otro producto?");
             opcionInsertar = teclado.nextLine();
         }
-        System.out.println("El precio total es: "+ precioTotal);
+        System.out.println("El precio total es: " + precioTotal);
     }//cierre registrarVenta
 
 }

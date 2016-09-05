@@ -5,10 +5,15 @@
  */
 package Vista.Formularios;
 
+import Logica.LogicaDeNegocio;
 import Logica.Producto;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -51,12 +56,16 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         lblRTotal = new javax.swing.JLabel();
         lblNombreVendedor = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
-        txtCantidad = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
         lblRNombreVendedor = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        btnConsultar = new javax.swing.JButton();
+        lblNombreCli = new javax.swing.JLabel();
+        spnCantidad = new javax.swing.JSpinner();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniVendedor = new javax.swing.JMenuItem();
@@ -67,6 +76,11 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDocumento.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
@@ -77,42 +91,46 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         lblProducto.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblProducto.setForeground(new java.awt.Color(255, 255, 255));
         lblProducto.setText("Producto:");
-        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 65, -1, -1));
+        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         lblPrecio.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecio.setText("Precio:");
-        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 114, -1, -1));
+        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         lblTotal.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblTotal.setText("Total:");
-        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 155, -1, -1));
+        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
         getContentPane().add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 21, 100, -1));
 
-        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cmbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 71, 100, -1));
+        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar producto..." }));
+        cmbProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProductoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 140, -1));
 
         lblRPrecio.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblRPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblRPrecio.setText("Aqui va el precio");
-        getContentPane().add(lblRPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 114, -1, -1));
+        getContentPane().add(lblRPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         lblRTotal.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblRTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblRTotal.setText("Aqui va el total");
-        getContentPane().add(lblRTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 155, 199, -1));
+        getContentPane().add(lblRTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 199, -1));
 
         lblNombreVendedor.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblNombreVendedor.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreVendedor.setText("Nombre vendedor:");
-        getContentPane().add(lblNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 12, -1, 35));
+        getContentPane().add(lblNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 35));
 
         lblCantidad.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidad.setText("Cantidad:");
-        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 65, -1, -1));
-        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 74, 39, -1));
+        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
 
         btnAgregar.setText("+");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +138,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 71, -1, -1));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
 
         btnEliminar.setText("x");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +146,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(619, 71, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, -1, -1));
 
         btnSalir.setText("Cerrar sesión");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +167,30 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         lblRNombreVendedor.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         lblRNombreVendedor.setForeground(new java.awt.Color(255, 255, 255));
         lblRNombreVendedor.setText("Aqui va el nombre");
-        getContentPane().add(lblRNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 12, -1, -1));
+        getContentPane().add(lblRNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(691, 12, 90, -1));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
+
+        btnConsultar.setText("jButton1");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
+
+        lblNombreCli.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblNombreCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 30));
+
+        spnCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(spnCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 50, -1));
 
         jMenu1.setText("Archivo");
 
@@ -218,7 +259,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         Producto insertar = new Producto();
-        insertar.insertarFinal(String.valueOf(cmbProducto.getSelectedIndex()), lblRPrecio.getText(), txtCantidad.getText());
+        insertar.insertarFinal(String.valueOf(cmbProducto.getSelectedIndex()), lblRPrecio.getText(), (String) spnCantidad.getValue());
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -230,6 +271,73 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        lblRNombreVendedor.setText(frmLogin.usuarioActual);
+        LogicaDeNegocio ln = new LogicaDeNegocio();
+        JComboBox cmb = new JComboBox();
+        if (!ln.validarLoginAdmin(frmLogin.usuarioActual)) {
+            mniProducto.setEnabled(false);
+            mniVendedor.setEnabled(false);
+            btnAgregar.setEnabled(false);
+            btnConfirmar.setEnabled(false);
+            btnEliminar.setEnabled(false);
+            spnCantidad.setEnabled(false);
+            cmbProducto.setEnabled(false);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    public void nombreCliente(LogicaDeNegocio ln, String documentoU) {
+        ResultSet rs = ln.nombreCliente(documentoU);
+        try {
+            rs.next();
+            lblNombreCli.setText(rs.getString(1));
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    public void listarProductos(LogicaDeNegocio ln){
+        ResultSet rs;        
+        rs = ln.listarProductos();
+        try {
+            while (rs.next()) {
+                cmbProducto.addItem(rs.getString(1));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        String documentoU = txtDocumento.getText();
+        LogicaDeNegocio ln = new LogicaDeNegocio();
+        
+        listarProductos(ln);
+        nombreCliente(ln, documentoU);
+
+        if (ln.validarSiExisteCliente(documentoU)) {
+            btnAgregar.setEnabled(true);
+            btnConfirmar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            spnCantidad.setEnabled(true);
+            cmbProducto.setEnabled(true);
+        } else {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(null, "¿Registrar cliente?", "¡El ciente no se encuentra registrado!", dialogButton);
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                frmRegistroCliente regCli = new frmRegistroCliente();
+                regCli.setVisible(true);
+                this.dispose();
+            } else {
+                lblNombreCli.setText("Anónimo");
+            }
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void cmbProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,16 +377,20 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSalir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbProducto;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDocumento;
+    private javax.swing.JLabel lblNombreCli;
     private javax.swing.JLabel lblNombreVendedor;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblProducto;
@@ -290,7 +402,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
     private javax.swing.JMenuItem mniProducto;
     private javax.swing.JMenuItem mniSalir;
     private javax.swing.JMenuItem mniVendedor;
-    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JSpinner spnCantidad;
     private javax.swing.JTextField txtDocumento;
     // End of variables declaration//GEN-END:variables
 }

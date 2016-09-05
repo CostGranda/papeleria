@@ -60,4 +60,16 @@ public class Clientes {
         }
         return cantfilias;
     }
+    
+    public static ResultSet nombreCliente(Connection con, String documento){
+        ResultSet rs= null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT nombre_completo FROM CLIENTE WHERE documento_cliente = '"+documento+"';";
+            rs = st.executeQuery(strSql);
+        } catch (Exception e) {
+        }
+        return rs;
+    }
 }

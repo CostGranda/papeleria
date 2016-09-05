@@ -86,9 +86,9 @@ public class LogicaDeNegocio {
         return b;
     }
     
-    public boolean validarLoginAdmin(String usuario, String clave) {
+    public boolean validarLoginAdmin(String usuario) {
         boolean b = false;
-        ResultSet rs = Vendedores.validarLoginAdmin(con, usuario, clave);
+        ResultSet rs = Vendedores.validarLoginAdmin(con, usuario);
         try {
             if (rs.next()) {
                 b = true;
@@ -128,5 +128,15 @@ public class LogicaDeNegocio {
             System.out.println("Error: " + ex);
         }
         return b;
+    }
+    
+    public ResultSet nombreCliente(String documento){
+        ResultSet rs = Clientes.nombreCliente(con, documento);
+        return rs;
+    }
+    
+    public ResultSet listarProductos(){
+        ResultSet rs = Producto.listarProductos(con);
+        return rs;
     }
 }

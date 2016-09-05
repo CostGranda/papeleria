@@ -105,15 +105,13 @@ public class Vendedores {
         return rs;
     }
 
-    public static ResultSet validarLoginAdmin(Connection con, String usuario, String clave) {
+    public static ResultSet validarLoginAdmin(Connection con, String usuario) {
         ResultSet rs = null;
         Statement st;
         try {
-            //if (usuario == "admin") {
                 st = con.createStatement();
-                String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and password = '"+clave+"'";
+                String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and rol = 'admin'";
                 rs = st.executeQuery(strSql);
-            //}
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
         }
