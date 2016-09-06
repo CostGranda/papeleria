@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
@@ -19,18 +18,21 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author sebgv_000
+ * @author Sebastián Giraldo, Jorge L Granda.
  */
 public class frmRegistroVenta extends javax.swing.JFrame {
 
     LogicaDeNegocio ln;
-    DefaultListModel modelo = new DefaultListModel();
+    DefaultListModel modelo;
+    Producto prod;
 
     /**
      * Creates new form frmRegistroVenta
      */
     public frmRegistroVenta() {
         ln = new LogicaDeNegocio();
+        modelo = new DefaultListModel();
+        prod = new Producto();
         initComponents();
         ((JPanel) getContentPane()).setOpaque(false);
         ImageIcon uno = new ImageIcon(this.getClass().getResource("/Vista/media/fondo.jpg"));
@@ -262,17 +264,24 @@ public class frmRegistroVenta extends javax.swing.JFrame {
 
         lstCarrito.setModel(modelo);
 
-        //      Producto insertar = new Producto();
-        //    insertar.insertarFinal(String.valueOf(cmbProducto.getSelectedIndex()), lblRPrecio.getText(), (String) spnCantidad.getValue());
+        prod.insertarFinal(cmbProducto.getSelectedItem().toString(), lblRPrecio.getText(), (int) spnCantidad.getValue());
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Producto eliminar = new Producto();
-        eliminar.eliminarFinal();
+        modelo = (DefaultListModel) lstCarrito.getModel();
+        int selectedIndex = lstCarrito.getSelectedIndex();
+        System.out.println(lstCarrito.getSelectedValue());
+        if (selectedIndex != -1) {
+            prod.buscarBorrar(lstCarrito.getSelectedValue());
+            modelo.remove(selectedIndex);
+        }
+        prod.eliminarFinal();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
+        prod.imprimir();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
