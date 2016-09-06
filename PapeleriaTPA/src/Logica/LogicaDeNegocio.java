@@ -85,7 +85,7 @@ public class LogicaDeNegocio {
         }
         return b;
     }
-    
+
     public boolean validarLoginAdmin(String usuario) {
         boolean b = false;
         ResultSet rs = Vendedores.validarLoginAdmin(con, usuario);
@@ -100,7 +100,9 @@ public class LogicaDeNegocio {
     }
 
     /**
-     * Registra un nuevo cliente en la BD, se requieren los mismos datos que un vendedor.
+     * Registra un nuevo cliente en la BD, se requieren los mismos datos que un
+     * vendedor.
+     *
      * @param documento
      * @param nombre_completo
      * @param telefono
@@ -113,7 +115,8 @@ public class LogicaDeNegocio {
     }
 
     /**
-     *  Valida que el cliente no se encuentre ya registrado en la base de datos.
+     * Valida que el cliente no se encuentre ya registrado en la base de datos.
+     *
      * @param documento
      * @return Retorna True si el cliente existe. False de lo contrario.
      */
@@ -129,13 +132,18 @@ public class LogicaDeNegocio {
         }
         return b;
     }
-    
-    public ResultSet nombreCliente(String documento){
+
+    public ResultSet datosCliente(String documento) {
+        ResultSet rs = Clientes.datosCliente(con, documento);
+        return rs;
+    }
+
+    public ResultSet nombreCliente(String documento) {
         ResultSet rs = Clientes.nombreCliente(con, documento);
         return rs;
     }
-    
-    public ResultSet listarProductos(){
+
+    public ResultSet listarProductos() {
         ResultSet rs = Producto.listarProductos(con);
         return rs;
     }

@@ -35,6 +35,27 @@ public class Clientes {
         }
         return rs;
     }
+        /**
+     * Valida por medio del documento si el cliente ya se encuentra en la base de datos 
+     * @param con La conexión o sesión con la base de datos actual.
+     * @param documento Es el documento del cliente que se va a registrar.
+     * @return Resultset con la consulta.
+     */
+    public static ResultSet datosCliente(Connection con, String documento) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT * FROM CLIENTE WHERE documento_cliente = '"
+                    + documento + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
+    
+    
     
     /**
      * Registra un nuevo cliente en la base de datos.
