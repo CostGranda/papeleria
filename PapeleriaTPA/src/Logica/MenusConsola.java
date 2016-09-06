@@ -199,11 +199,11 @@ public class MenusConsola {
         System.out.println("Cantidad: ");
         cantidad = teclado.nextInt();
         precioTotal = precio * cantidad;
-        pr.insertarFinal(producto, String.valueOf(precio), String.valueOf(cantidad));
+        //pr.insertarFinal(producto, String.valueOf(precio), String.valueOf(cantidad));
         System.out.println("¿Desea eliminar el ultimo producto agregado?");
         opcionEliminar = teclado.nextLine();
         if ("si".equals(opcionEliminar)) {
-            pr.eliminarFinal();
+            //pr.eliminarFinal();
         }
         System.out.println("¿Desea comprar otro producto?");
         opcionInsertar = teclado.nextLine();

@@ -12,63 +12,99 @@ import java.sql.Statement;
 
 /**
  *
- * @author sebgv
+ * @author Sebastián Giraldo, Jorge L Granda.
  */
 public class Producto {
 
-    public class nodo {
+    class nodo {
 
         public String nombre;
         public String precio;
-        public String cantidad;
-        public nodo sig;
+        public int cantidad;
+        nodo sig;
 
-        public nodo(String nombre, String precio, String cantidad) {
+        public nodo(String nombre, String precio, int cantidad) {
             this.nombre = nombre;
             this.precio = precio;
             this.cantidad = cantidad;
         }
 
-        public nodo getSig() {
-            return sig;
-        }
-
-        public void setSig(nodo sig) {
-            this.sig = sig;
-        }
-
     }//Fin clase nodo
 
-    private nodo raiz;
+    private nodo raiz, fondo;
 
     public Producto() {
-        this.raiz = null;
+        raiz = null;
+        fondo = null;
     }
 
-    public boolean estaVacia() {
-        return raiz == null;
-    }
-
-    public void insertarFinal(String nombre, String precio, String cantidad) {
-        nodo r = new nodo(nombre, precio, cantidad);
-        nodo v = this.raiz;
-
-        while (r.getSig() != null) {
-            r = r.getSig();
+    public boolean vacia() {
+        if (raiz == null) {
+            return true;
+        } else {
+            return false;
         }
-        r.setSig(v);
-        v.setSig(null);
+    }
+
+    public void insertarFinal(String nombre, String precio, int cantidad) {
+        nodo nuevo;
+        nuevo = new nodo(nombre, precio, cantidad);
+        nuevo.sig = null;
+        if (vacia()) {
+            raiz = nuevo;
+            fondo = nuevo;
+        } else {
+            fondo.sig = nuevo;
+            fondo = nuevo;
+        }
     }
 
     public void eliminarFinal() {
-        nodo aux;
-        if (!estaVacia()) {
-            aux = raiz;
-            while (aux.getSig().getSig() != null) {
-                aux = aux.getSig();
+        nodo aux,ant;
+        if (!vacia()) {
+            if (raiz == fondo) {
+                raiz = null;
+                fondo = null;
+            } else {
+                aux = raiz;
+                ant = raiz;
+                while (aux.sig != null) {
+                    ant = aux;
+                    aux = aux.sig;
+                }
+                ant.sig = null;
+                fondo = ant;
             }
-            aux.setSig(null);
         }
+    }
+    
+    public void buscarBorrar(String nombre){
+        nodo aux;
+        if(!vacia()){
+            aux = raiz;
+            while (aux != null) {
+                if(aux.nombre.equals(nombre)){
+                    //System.out.println("Encontrado!");
+                    aux = null;
+                    return;
+                }
+                aux = aux.sig;
+            }
+        }
+    }
+    
+    public void eliminar(String nombre){
+        
+    }
+
+    public void imprimir() {
+        nodo reco = raiz;
+        System.out.println("Listado de todos los elementos de la cola.");
+        while (reco != null) {
+            System.out.print(reco.nombre + "-");
+            reco = reco.sig;
+        }
+        System.out.println();
     }
 
     public static ResultSet listarProductos(Connection con) {
