@@ -139,4 +139,9 @@ public class LogicaDeNegocio {
         ResultSet rs = Producto.listarProductos(con);
         return rs;
     }
+    
+    public ResultSet listarProductosConsola(int cod){
+        ResultSet rs = Producto.listarProductosConsola(con,cod);
+        return rs;
+    }
 }

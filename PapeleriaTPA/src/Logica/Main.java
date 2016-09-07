@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int opcion;
-        System.out.println("*********************************************\n"
+        System.out.print("*********************************************\n"
                 + "*                Bienvenido                 *\n"
                 + "*********************************************\n"
                 + "* ¿Desea ver el proyecto por consola o GUI? *\n"
