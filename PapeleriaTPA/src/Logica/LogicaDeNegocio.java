@@ -165,7 +165,7 @@ public class LogicaDeNegocio {
 
     public boolean validarSiExisteProducto(String nombre) {
         boolean b = false;
-        ResultSet rs = Clientes.validarSiExisteCliente(con, nombre);
+        ResultSet rs = Producto.validarSiExisteProducto(con, nombre);
         try {
             if (rs.next()) {
                 b = true;
@@ -176,8 +176,13 @@ public class LogicaDeNegocio {
         return b;
     }
 
-    public ResultSet listarProductosConsola(int cod) {
-        ResultSet rs = Producto.listarProductosConsola(con, cod);
+    public ResultSet listarProductosCodigo(int cod) {
+        ResultSet rs = Producto.listarProductosCodigo(con, cod);
+        return rs;
+    }
+    
+    public ResultSet listarProductosNombre(String nombre) {
+        ResultSet rs = Producto.listarProductosNombre(con, nombre);
         return rs;
     }
 }

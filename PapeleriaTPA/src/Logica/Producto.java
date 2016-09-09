@@ -134,7 +134,7 @@ public class Producto {
         return rs;
     }
 
-    public static ResultSet validarSiExisteCliente(Connection con, String nombre) {
+    public static ResultSet validarSiExisteProducto(Connection con, String nombre) {
         ResultSet rs = null;
         Statement st;
         try {
@@ -148,12 +148,25 @@ public class Producto {
         return rs;
     }
 
-    public static ResultSet listarProductosConsola(Connection con, int cod) {
+    public static ResultSet listarProductosCodigo(Connection con, int cod) {
         ResultSet rs = null;
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT nombre_producto, precio FROM PRODUCTO WHERE codigo_producto ='" + cod + "';";
+            String strSql = "SELECT * FROM PRODUCTO WHERE codigo_producto ='" + cod + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
+
+    public static ResultSet listarProductosNombre(Connection con, String nombre) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT * FROM PRODUCTO WHERE nombre_producto ='" + nombre + "';";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
