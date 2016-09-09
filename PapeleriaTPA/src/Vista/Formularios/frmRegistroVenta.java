@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  */
 public class frmRegistroVenta extends javax.swing.JFrame {
 
-    LogicaDeNegocio ln;
+    public static LogicaDeNegocio ln;
     DefaultListModel modelo;
     Producto prod;
 
@@ -205,6 +205,11 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         jMenu1.add(mniVendedor);
 
         mniProducto.setText("Añadir productos");
+        mniProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniProductoActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniProducto);
 
         mniCliente.setText("Añadir cliente");
@@ -313,7 +318,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         rs = ln.listarProductos();
         try {
             while (rs.next()) {
-                cmbProducto.addItem(rs.getString(1));
+                cmbProducto.addItem(rs.getString(2));
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -326,7 +331,6 @@ public class frmRegistroVenta extends javax.swing.JFrame {
             return;
         }
         String documentoU = txtDocumento.getText();
-//        LogicaDeNegocio ln = new LogicaDeNegocio();
 
         listarProductos(ln);
         nombreCliente(ln, documentoU);
@@ -365,6 +369,12 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         String precio = cmbProducto.getSelectedItem().toString();
         lblRPrecio.setText(precio);*/
     }//GEN-LAST:event_cmbProductoItemStateChanged
+
+    private void mniProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniProductoActionPerformed
+        frmProducto produ = new frmProducto();
+        this.setVisible(false);
+        produ.setVisible(true);
+    }//GEN-LAST:event_mniProductoActionPerformed
 
     /**
      * @param args the command line arguments
