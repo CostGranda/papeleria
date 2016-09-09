@@ -54,10 +54,12 @@ public class Vendedores {
     public static int insertarLoginVendedor(Connection con, String usuario, String clave) {
         int cantfilas = 0;
         Statement st;
+        
         try {
             st = con.createStatement();
             String strSql;
             strSql = "INSERT INTO LOGIN VALUES ('" + usuario + "','" + clave + "','vendedor');";
+            cantfilas = st.executeUpdate(strSql);
         } catch (Exception e) {
         }
         return cantfilas;

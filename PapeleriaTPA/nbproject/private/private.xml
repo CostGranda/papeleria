@@ -2,14 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
+            <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/Producto.java</file>
+            <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/Clientes.java</file>
+            <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/Main.java</file>
             <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/Vendedores.java</file>
             <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/MenusConsola.java</file>
             <file>file:/home/sebgv/Github/papeleria/PapeleriaTPA/src/Logica/LogicaDeNegocio.java</file>
         </group>
->>>>>>> test
     </open-files>
 </project-private>

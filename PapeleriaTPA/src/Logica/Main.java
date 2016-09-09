@@ -27,19 +27,19 @@ public class Main {
                 + "* 1 Para GUI                                *\n"
                 + "* 2 para consola                            *\n"
                 + "*********************************************\n"
-                +"~");
+                + "~");
         opcion = teclado.nextInt();
-        if (opcion == 1) {
-            frmLogin inicio = new frmLogin();
-            inicio.setVisible(true);
-        } else if (opcion == 2) {
-            MenusConsola consola = new MenusConsola();
-            consola.Login();
-        } else {
-            System.out.println("Opcion incorrecta");
-            main(args);
-        }
-
+        do {
+            if (opcion == 1) {
+                frmLogin inicio = new frmLogin();
+                inicio.setVisible(true);
+            } else if (opcion == 2) {
+                MenusConsola consola = new MenusConsola();
+                consola.Login();
+            } else {
+                System.out.println("Opcion incorrecta");
+                main(args);
+            }
+        } while (opcion < 1 &&  opcion >= 2);
     }
-
 }

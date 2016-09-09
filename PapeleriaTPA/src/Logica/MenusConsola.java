@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import Vista.Formularios.frmCredits;
 import java.io.Console;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ public class MenusConsola {
         System.out.print("**********************************\n"
                 + "*  Contraseña: ");
         password = teclado.next();
-        System.out.print("*********************************\n");
+        System.out.print("**********************************\n");
         LogicaDeNegocio ln = new LogicaDeNegocio();
 
         if (ln.validarLoginVendedor(usuario, password)) {
@@ -62,7 +63,9 @@ public class MenusConsola {
                     registrarCliente();
                     break;
                 case 3:
+                    frmCredits creditos = new frmCredits();
                     System.out.println("¡Adios!");
+                    creditos.setVisible(true);                  
                     break;
                 default:
                     System.out.println("No se reconoce la opcion insertada. Intente de nuevo.");
@@ -97,7 +100,9 @@ public class MenusConsola {
                     registrarVenta();
                     break;
                 case 5:
+                    frmCredits creditos = new frmCredits();
                     System.out.println("¡Adios!");
+                    creditos.setVisible(true);
                     break;
                 default:
                     System.out.println("No se reconoce la opcion insertada. Intente de nuevo.");
@@ -155,18 +160,18 @@ public class MenusConsola {
         String correo;
         String telefono;
 
-        System.out.println("Documento: ");
+        System.out.print("Documento: ");
         documento = teclado.next();
         LogicaDeNegocio ln = new LogicaDeNegocio();
         if (ln.validarSiExisteCliente(documento)) {
             System.out.println("El cliente " + documento + " ya esta registrado");
             registrarCliente();
         }
-        System.out.println("Nombre completo: ");
+        System.out.print("Nombre completo: ");
         nombre = teclado.next();
-        System.out.println("Correo: ");
+        System.out.print("Correo: ");
         correo = teclado.next();
-        System.out.println("Telefono: ");
+        System.out.print("Telefono: ");
         telefono = teclado.next();
         ln.insertarCliente(documento, nombre, telefono, correo);
         System.out.println("¡Cliente registrado satisfactoriamente! ");
