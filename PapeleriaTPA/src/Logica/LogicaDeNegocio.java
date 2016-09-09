@@ -99,6 +99,9 @@ public class LogicaDeNegocio {
         return b;
     }
 
+    /*
+    Métodos para los productos
+     */
     /**
      * Registra un nuevo cliente en la BD, se requieren los mismos datos que un
      * vendedor.
@@ -143,13 +146,44 @@ public class LogicaDeNegocio {
         return rs;
     }
 
+    /*
+    Métodos para los productos
+     */
+    public void insertarProducto(String nombre, String descripcion, String precio, String dispo_venta) {
+        int cant = Producto.insertarProducto(con, nombre, descripcion, precio, dispo_venta);
+        System.out.println("Cantidad de registros insertados: " + cant);
+    }
+
+    public void actualizarProducto(String nombre, String descripcion, String precio, String dispo_venta) {
+        int cant = Producto.actualizarProducto(con, nombre, descripcion, precio, dispo_venta);
+        System.out.println("Cantidad de registros actualizados: " + cant);
+    }
+
+    public boolean validarSiExisteProducto(String nombre) {
+        boolean b = false;
+        ResultSet rs = Producto.validarSiExisteProducto(con, nombre);
+        try {
+            if (rs.next()) {
+                b = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return b;
+    }
+
     public ResultSet listarProductos() {
         ResultSet rs = Producto.listarProductos(con);
         return rs;
     }
-    
-    public ResultSet listarProductosConsola(int cod){
-        ResultSet rs = Producto.listarProductosConsola(con,cod);
+
+    public ResultSet listarProductosCodigo(int cod) {
+        ResultSet rs = Producto.listarProductosCodigo(con, cod);
+        return rs;
+    }
+
+    public ResultSet listarProductosNombre(String nombre) {
+        ResultSet rs = Producto.listarProductosNombre(con, nombre);
         return rs;
     }
 }

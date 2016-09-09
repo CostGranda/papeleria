@@ -60,7 +60,7 @@ public class Producto {
     }
 
     public void eliminarFinal() {
-        nodo aux,ant;
+        nodo aux, ant;
         if (!vacia()) {
             if (raiz == fondo) {
                 raiz = null;
@@ -77,13 +77,13 @@ public class Producto {
             }
         }
     }
-    
-    public void buscarBorrar(String nombre){
+
+    public void buscarBorrar(String nombre) {
         nodo aux;
-        if(!vacia()){
+        if (!vacia()) {
             aux = raiz;
             while (aux != null) {
-                if(aux.nombre.equals(nombre)){
+                if (aux.nombre.equals(nombre)) {
                     //System.out.println("Encontrado!");
                     aux = null;
                     return;
@@ -92,9 +92,9 @@ public class Producto {
             }
         }
     }
-    
-    public void eliminar(String nombre){
-        
+
+    public void eliminar(String nombre) {
+
     }
 
     public void imprimir() {
@@ -107,25 +107,84 @@ public class Producto {
         System.out.println();
     }
 
+    public static int insertarProducto(Connection con, String nombre, String descripcion, String precio, String dispo_venta) {
+        int cantf = 0;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String sql = "INSERT INTO `Papeleria`.`PRODUCTO` "
+                    + "(`nombre_producto`, `descripcion`, `precio`, `disponible_venta`) "
+                    + "VALUES ('" + nombre + "', '" + descripcion + "', '" + precio + "','" + dispo_venta + "');";
+            cantf = st.executeUpdate(sql);
+        } catch (Exception e) {
+        }
+        return cantf;
+    }
+
+    public static int actualizarProducto(Connection con, String nombre, String descripcion, String precio, String dispo_venta) {
+        int cantf = 0;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String sql = "UPDATE `Papeleria`.`PRODUCTO`\n"
+                    + "SET\n"
+                    + "`nombre_producto` = '" + nombre + "',\n"
+                    + "`descripcion` = '" + descripcion + "',\n"
+                    + "`precio` = '" + precio + "',\n"
+                    + "`disponible_venta` = '" + dispo_venta + "'\n"
+                    + "WHERE `nombre_producto` = '" + nombre + "';";
+            cantf = st.executeUpdate(sql);
+        } catch (Exception e) {
+        }
+        return cantf;
+    }
+
     public static ResultSet listarProductos(Connection con) {
         ResultSet rs = null;
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT nombre_producto, precio FROM PRODUCTO;";
+            String strSql = "SELECT * FROM PRODUCTO;";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
         }
         return rs;
     }
-    
-    public static ResultSet listarProductosConsola(Connection con, int cod) {
+
+    public static ResultSet validarSiExisteProducto(Connection con, String nombre) {
         ResultSet rs = null;
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT nombre_producto, precio FROM PRODUCTO WHERE codigo_producto ='"+ cod +"';";
+            String strSql = "SELECT 1 FROM PRODUCTO WHERE nombre_producto = '"
+                    + nombre + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
+
+    public static ResultSet listarProductosCodigo(Connection con, int cod) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT * FROM PRODUCTO WHERE codigo_producto ='" + cod + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
+
+    public static ResultSet listarProductosNombre(Connection con, String nombre) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT * FROM PRODUCTO WHERE nombre_producto ='" + nombre + "';";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);

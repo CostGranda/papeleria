@@ -212,17 +212,17 @@ public class MenusConsola {
 
         System.out.println("Codigo producto: ");
         cod = teclado.nextInt();
-        rs = ln.listarProductosConsola(cod);
+        rs = ln.listarProductosCodigo(cod);
         try {
             rs.next();
-            System.out.println("Producto: " + rs.getString(1));
+            System.out.println("Producto: " + rs.getString(2));
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-        rs = ln.listarProductosConsola(cod);
+        rs = ln.listarProductosCodigo(cod);
         try {
             rs.next();
-            System.out.println("Precio: " + rs.getString(2));
+            System.out.println("Precio: " + rs.getString(4));
         } catch (SQLException ex) {
             System.out.println(ex);
         }
