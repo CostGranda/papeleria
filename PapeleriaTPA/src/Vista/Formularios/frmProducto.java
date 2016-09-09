@@ -79,7 +79,7 @@ public class frmProducto extends javax.swing.JFrame {
         });
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/media/registerB.png"))); // NOI18N
-        btnAgregar.setToolTipText("Sign Up");
+        btnAgregar.setToolTipText("Añadir");
         btnAgregar.setBorder(null);
         btnAgregar.setBorderPainted(false);
         btnAgregar.setContentAreaFilled(false);
@@ -137,6 +137,7 @@ public class frmProducto extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setEnabled(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -144,6 +145,11 @@ public class frmProducto extends javax.swing.JFrame {
         });
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         txtCodigo.setEnabled(false);
 
@@ -295,7 +301,7 @@ public class frmProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -345,6 +351,17 @@ public class frmProducto extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         txtNombre.requestFocus(true);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        String nombre, codigo, descripcion, precio, dispo;
+        codigo = txtCodigo.getText();
+        nombre = txtNombre.getText();
+        descripcion = txtaDescripcion.getText();
+        precio = String.valueOf(spnPrecio.getValue());
+        dispo = String.valueOf(spnDisponible.getValue());
+        ln.actualizarProducto(nombre, descripcion, precio, dispo);
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -121,6 +121,24 @@ public class Producto {
         return cantf;
     }
 
+    public static int actualizarProducto(Connection con, String nombre, String descripcion, String precio, String dispo_venta) {
+        int cantf = 0;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String sql = "UPDATE `Papeleria`.`PRODUCTO`\n"
+                    + "SET\n"
+                    + "`nombre_producto` = '" + nombre + "',\n"
+                    + "`descripcion` = '" + descripcion + "',\n"
+                    + "`precio` = '" + precio + "',\n"
+                    + "`disponible_venta` = '" + dispo_venta + "'\n"
+                    + "WHERE `nombre_producto` = '" + nombre + "';";
+            cantf = st.executeUpdate(sql);
+        } catch (Exception e) {
+        }
+        return cantf;
+    }
+
     public static ResultSet listarProductos(Connection con) {
         ResultSet rs = null;
         Statement st;
