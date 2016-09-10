@@ -32,7 +32,7 @@ public class frmProducto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("/Vista/media/login_ico.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Vista/media/product.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false);
         ImageIcon uno = new ImageIcon(this.getClass().getResource("/Vista/media/fondo.jpg"));
         JLabel fondo = new JLabel();
