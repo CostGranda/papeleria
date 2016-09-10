@@ -214,7 +214,6 @@ public class frmProducto extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
                 .addComponent(btnBack)
                 .addGap(20, 20, 20))
         );
@@ -222,7 +221,7 @@ public class frmProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rbtnCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,7 +272,7 @@ public class frmProducto extends javax.swing.JFrame {
         }
         ln = new LogicaDeNegocio();
         //Si el producto existe muestra un mensaje y limpia el campo.
-        if (ln.validarSiExisteProducto(nombre)) {
+        if (ln.validarSiExisteProductoNombre(nombre)) {
             JOptionPane.showMessageDialog(null, "El producto '" + txtNombre.getText() + "' ya existe.");
             txtNombre.requestFocus();
             txtNombre.setText("");
@@ -309,9 +308,14 @@ public class frmProducto extends javax.swing.JFrame {
         String cod = rbtnCodigo.getActionCommand();
         String codigo = txtCodigo.getText();
         String nombre = txtNombre.getText();
-        ResultSet rs;
+        ResultSet rs = null;
         if (rbtnCodigo.isSelected()) {
-            rs = ln.listarProductosCodigo(Integer.valueOf(codigo));
+            if (ln.validarSiExisteProductoCodigo(codigo)) {
+                rs = ln.listarProductosCodigo(Integer.valueOf(codigo));
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "El producto '" + txtCodigo.getText() + "' no existe."); 
+            }
         } else {
             rs = ln.listarProductosNombre(nombre);
         }

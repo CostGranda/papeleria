@@ -152,13 +152,27 @@ public class Producto {
         return rs;
     }
 
-    public static ResultSet validarSiExisteProducto(Connection con, String nombre) {
+    public static ResultSet validarSiExisteProductoNombre(Connection con, String nombre) {
         ResultSet rs = null;
         Statement st;
         try {
             st = con.createStatement();
             String strSql = "SELECT 1 FROM PRODUCTO WHERE nombre_producto = '"
                     + nombre + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
+    
+    public static ResultSet validarSiExisteProductoCodigo(Connection con, String codigo) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT 1 FROM PRODUCTO WHERE codigo_producto = '"
+                    + codigo + "';";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);

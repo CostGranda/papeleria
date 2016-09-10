@@ -19,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        int opcion;
+        String opcion;
         System.out.print("*********************************************\n"
                 + "*                Bienvenido                 *\n"
                 + "*********************************************\n"
@@ -28,18 +28,18 @@ public class Main {
                 + "* 2 para consola                            *\n"
                 + "*********************************************\n"
                 + "~");
-        opcion = teclado.nextInt();
+        opcion = teclado.next();
         do {
-            if (opcion == 1) {
+            if ("1".equals(opcion)) {
                 frmLogin inicio = new frmLogin();
                 inicio.setVisible(true);
-            } else if (opcion == 2) {
+            } else if ("2".equals(opcion)) {
                 MenusConsola consola = new MenusConsola();
                 consola.Login();
             } else {
                 System.out.println("Opcion incorrecta");
                 main(args);
             }
-        } while (opcion < 1 &&  opcion >= 2);
+        } while (opcion == "1" ||  opcion == "2");
     }
 }

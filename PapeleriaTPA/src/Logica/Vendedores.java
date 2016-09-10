@@ -99,7 +99,7 @@ public class Vendedores {
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and password = '" + clave + "'";
+            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and password = '" + clave + "' and rol = 'vendedor'" ;
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);

@@ -159,9 +159,22 @@ public class LogicaDeNegocio {
         System.out.println("Cantidad de registros actualizados: " + cant);
     }
 
-    public boolean validarSiExisteProducto(String nombre) {
+    public boolean validarSiExisteProductoNombre(String nombre) {
         boolean b = false;
-        ResultSet rs = Producto.validarSiExisteProducto(con, nombre);
+        ResultSet rs = Producto.validarSiExisteProductoNombre(con, nombre);
+        try {
+            if (rs.next()) {
+                b = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return b;
+    }
+    
+    public boolean validarSiExisteProductoCodigo(String codigo) {
+        boolean b = false;
+        ResultSet rs = Producto.validarSiExisteProductoCodigo(con, codigo);
         try {
             if (rs.next()) {
                 b = true;

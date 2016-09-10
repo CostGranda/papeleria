@@ -173,7 +173,7 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        if (!ln.validarLoginVendedor(user, password)) {
+        if (!ln.validarLoginVendedor(user, password) && !ln.validarLoginAdmin(user)) {
             JOptionPane.showMessageDialog(this, "Usuario o clave no valida");
             txtUser.setText("");
             txtPassword.setText("");

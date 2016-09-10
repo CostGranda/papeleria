@@ -37,7 +37,7 @@ public class MenusConsola {
 
         if (ln.validarLoginVendedor(usuario, password)) {
             vendedor();
-        } else if (!ln.validarLoginVendedor(usuario, password)) {
+        } else if (ln.validarLoginAdmin(usuario)) {
             admin();
         } else {
             System.out.println("Usuario o contraseña invalidos,vuelve a ingresarlos");
@@ -46,60 +46,61 @@ public class MenusConsola {
     }//cierre login
 
     public void vendedor() {
-        int op;
+        String op;
         System.out.print(".........................\n"
                 + ".  1. Registrar venta   .\n"
                 + ".  2. Registrar cliente .\n"
                 + ".  3. Salir             .\n"
                 + ".........................\n"
                 + "~ ");
-        op = teclado.nextInt();
+        op = teclado.next();
         do {
             switch (op) {
-                case 1:
+                case "1":
                     registrarVenta();
                     break;
-                case 2:
+                case "2":
                     registrarCliente();
                     break;
-                case 3:
+                case "3":
                     frmCredits creditos = new frmCredits();
                     System.out.println("¡Adios!");
-                    creditos.setVisible(true);                  
+                    creditos.setVisible(true);
                     break;
                 default:
                     System.out.println("No se reconoce la opcion insertada. Intente de nuevo.");
                     vendedor();
             }
-        } while (op < 1 && op >= 3);
+        } while ("1".equals(op) || "2".equals(op) || "3".equals(op));
 
     }//Cierre vendedor
 
     public void admin() {
-        int op = 0;
+        String op;
         System.out.print("............................\n"
                 + ".  1. Registrar vendedor   .\n"
                 + ".  2. Registrar cliente    .\n"
-                + ".  3. Registrar productos  .\n"
+                + ".  3. Productos            .\n"
                 + ".  4. Registrar venta      .\n"
                 + ".  5. Salir                .\n"
                 + "...........................\n"
                 + "~ ");
-        op = teclado.nextInt();
+        op = teclado.next();
         do {
             switch (op) {
-                case 1:
+                case "1":
                     registrarVendedor();
                     break;
-                case 2:
+                case "2":
                     registrarCliente();
                     break;
-                case 3:
+                case "3":
+                    Producto();
                     break;
-                case 4:
+                case "4":
                     registrarVenta();
                     break;
-                case 5:
+                case "5":
                     frmCredits creditos = new frmCredits();
                     System.out.println("¡Adios!");
                     creditos.setVisible(true);
@@ -108,8 +109,45 @@ public class MenusConsola {
                     System.out.println("No se reconoce la opcion insertada. Intente de nuevo.");
                     admin();
             }
-        } while (op < 1 && op >= 5);
+        } while ("1".equals(op) || "2".equals(op) || "3".equals(op) || "4".equals(op) || "5".equals(op));
     }//Cierre vendedor
+
+    public void Producto() {
+        String op;
+        System.out.print(".........................\n"
+                + ".  1. Registrar producto   .\n"
+                + ".  2. Consultar producto   .\n"
+                + ".  3. Editar Producto      .\n"
+                + ".  4. Eliminar Producto    .\n"
+                + ".  5. Salir                .\n"
+                + "............................\n"
+                + "~ ");
+        op = teclado.next();
+        do {
+            switch (op) {
+                case "1":
+                    registarProducto();
+                    break;
+                case "2":
+                    consultarProducto();
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+                    
+                    break;
+                case "5":
+                    frmCredits creditos = new frmCredits();
+                    System.out.println("¡Adios!");
+                    creditos.setVisible(true);
+                    break;
+                default:
+                    System.out.println("No se reconoce la opcion insertada. Intente de nuevo.");
+                    vendedor();
+            }
+        } while ("1".equals(op) || "2".equals(op) || "3".equals(op) || "4".equals(op));
+    }//Cierre producto
 
     public void registrarVendedor() {
         String nombre;
@@ -255,4 +293,141 @@ public class MenusConsola {
         System.out.println("El precio total es: " + precioTotal);
     }//cierre registrarVenta
 
+    public void registarProducto() {
+        String nombre;
+        String descripcion = null;
+        String precio;
+        String cantidaDisponible;
+        String opcion;
+
+        System.out.print("Nombre producto: ");
+        nombre = teclado.next();
+        System.out.print("Precio: ");
+        precio = teclado.next();
+        System.out.print("Cantidad disponible: ");
+        cantidaDisponible = teclado.next();
+        System.out.print("¿Desea agregar una descripcion? ");
+        opcion = teclado.next();
+        if ("si".equals(opcion)) {
+            System.out.print("Descripcion: ");
+            descripcion = teclado.next();
+        }
+
+        LogicaDeNegocio ln = new LogicaDeNegocio();
+        ln.insertarProducto(nombre, descripcion, precio, cantidaDisponible);
+    }//Cierre registrarProducto
+
+    public void consultarProducto() {
+        LogicaDeNegocio ln = new LogicaDeNegocio();
+        String codigo;
+        String nombre;
+        ResultSet rs;
+        String op;
+        String op2;
+        System.out.print("......................................\n"
+                + ".  Desea consultar el producto por:   .\n"
+                + ".  1. Codigo                          .\n"
+                + ".  2. Nombre                          .\n"
+                + ".  3. Salir                           .\n"
+                + ".......................................\n"
+                + "~ ");
+        op = teclado.next();
+
+        do {
+            switch (op) {
+                case "1":
+                    System.out.print("Codigo: ");
+                    codigo = teclado.next();
+                    rs = ln.listarProductosCodigo(Integer.valueOf(codigo));
+                    try {
+                        while (rs.next()) {
+                            System.out.println("Codigo: " + rs.getString(1));
+                            System.out.println("Nombre: " + rs.getString(2));
+                            if (rs.getString(3) != null) {
+                                System.out.println("Descripcion: " + rs.getString(3));
+                            }
+                            System.out.println("Precio: " + rs.getString(4));
+                            System.out.println("Cantidad disponible: " + rs.getString(5));
+                        }
+                    } catch (SQLException | NumberFormatException e) {
+                        System.out.println(e);
+                    }
+                    System.out.println("¿Desea consultar otro producto?");
+                    op2 = teclado.next();
+                    if ("si".equals(op2)) {
+                        consultarProducto();
+                    } else if ("no".equals(op2)) {
+                        admin();
+                    } else {
+                        while (!"si".equals(op2) && !"no".equals(op2)) {
+                            System.out.println("Opcion incorrecta ");
+                            System.out.println("¿Desea consultar otro producto?");
+                            op2 = teclado.next();
+                            if ("si".equals(op2)) {
+                                consultarProducto();
+                            } else if ("no".equals(op2)) {
+                                admin();
+                            }
+                        }
+                    }
+                    break;
+                case "2":
+                    System.out.println("Nombre: ");
+                    nombre = teclado.next();
+                    rs = ln.listarProductosNombre(nombre);
+                    try {
+                        while (rs.next()) {
+                            System.out.println("Codigo: " + rs.getString(1));
+                            System.out.println("Nombre: " + rs.getString(2));
+                            if (rs.getString(3) != null) {
+                                System.out.println("Descripcion: " + rs.getString(3));
+                            }
+                            System.out.println("Precio: " + rs.getString(4));
+                            System.out.println("Cantidad disponible: " + rs.getString(5));
+                        }
+                    } catch (SQLException | NumberFormatException e) {
+                        System.out.println(e);
+                    }
+                    System.out.println("¿Desea consultar otro producto?");
+                    op2 = teclado.next();
+                    if ("si".equals(op2)) {
+                        consultarProducto();
+                    } else if ("no".equals(op2)) {
+                        admin();
+                    } else {
+                        while (!"si".equals(op2) && !"no".equals(op2)) {
+                            System.out.println("Opcion incorrecta ");
+                            System.out.println("¿Desea consultar otro producto?");
+                            op2 = teclado.next();
+                            if ("si".equals(op2)) {
+                                consultarProducto();
+                            } else if ("no".equals(op2)) {
+                                admin();
+                            }
+                        }
+                    }
+                    break;
+                case "3":
+                    frmCredits creditos = new frmCredits();
+                    System.out.println("¡Adios!");
+                    creditos.setVisible(true);
+                    break;
+                default:
+                    System.out.println("No se reconoce la opción insertada. Intente de nuevo.");
+                    consultarProducto();
+            }
+
+        } while ("1".equals(op) || "2".equals(op) || "3".equals(op));
+    }//Cerrar consultarProducto
+    
+    public void editarProducto(){
+        String codigo;
+        String nombre;
+        ResultSet rs;
+        String op;
+        
+        System.out.print("Ingrese el codigo del producto: ");
+        codigo = teclado.next();
+        
+    }
 }
