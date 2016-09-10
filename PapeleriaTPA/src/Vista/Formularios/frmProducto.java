@@ -333,7 +333,12 @@ public class frmProducto extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null, "El producto '" + txtCodigo.getText() + "' no existe."); 
             }
         } else {
-            rs = ln.listarProductosNombre(nombre);
+            if (ln.validarSiExisteProductoNombre(nombre)) {
+                rs = ln.listarProductosNombre(nombre);
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "El producto '" + txtNombre.getText() + "' no existe."); 
+            }            
         }
         try {
             while (rs.next()) {

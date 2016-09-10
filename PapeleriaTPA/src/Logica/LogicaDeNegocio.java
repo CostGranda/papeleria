@@ -158,6 +158,11 @@ public class LogicaDeNegocio {
         int cant = Producto.actualizarProducto(con, nombre, descripcion, precio, dispo_venta);
         System.out.println("Cantidad de registros actualizados: " + cant);
     }
+    
+    public void eliminarProducto(String codigo){
+        int cant = Producto.eliminarProducto(con, codigo);
+        System.out.println("Cantidad de registros eliminados: "+ cant);
+    }
 
     public boolean validarSiExisteProductoNombre(String nombre) {
         boolean b = false;
@@ -171,7 +176,7 @@ public class LogicaDeNegocio {
         }
         return b;
     }
-    
+
     public boolean validarSiExisteProductoCodigo(String codigo) {
         boolean b = false;
         ResultSet rs = Producto.validarSiExisteProductoCodigo(con, codigo);

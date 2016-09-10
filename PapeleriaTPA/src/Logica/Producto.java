@@ -93,8 +93,17 @@ public class Producto {
         }
     }
 
-    public void eliminar(String nombre) {
-
+    public static int eliminarProducto(Connection con, String codigo) {
+        int cantf = 0;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String sql = "DELETE FROM `Papeleria`.`PRODUCTO` "
+                    + "WHERE `codigo_producto` = '" + codigo + "';";
+            cantf = st.executeUpdate(sql);
+        } catch (Exception e) {
+        }
+        return cantf;
     }
 
     public void imprimir() {
@@ -165,7 +174,7 @@ public class Producto {
         }
         return rs;
     }
-    
+
     public static ResultSet validarSiExisteProductoCodigo(Connection con, String codigo) {
         ResultSet rs = null;
         Statement st;

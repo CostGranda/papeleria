@@ -29,7 +29,6 @@ public class Main {
                 + "*********************************************\n"
                 + "~");
         opcion = teclado.next();
-        do {
             if ("1".equals(opcion)) {
                 frmLogin inicio = new frmLogin();
                 inicio.setVisible(true);
@@ -40,6 +39,5 @@ public class Main {
                 System.out.println("Opcion incorrecta");
                 main(args);
             }
-        } while (opcion == "1" ||  opcion == "2");
     }
 }
