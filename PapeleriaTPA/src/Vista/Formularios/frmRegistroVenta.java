@@ -83,6 +83,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro venta");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -90,26 +91,26 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblDocumento.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblDocumento.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblDocumento.setForeground(new java.awt.Color(255, 255, 255));
         lblDocumento.setText("Documento:");
-        getContentPane().add(lblDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        getContentPane().add(lblDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblProducto.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblProducto.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblProducto.setForeground(new java.awt.Color(255, 255, 255));
         lblProducto.setText("Producto:");
-        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        getContentPane().add(lblProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        lblPrecio.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblPrecio.setFont(new java.awt.Font("Pristina", 0, 14)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecio.setText("Precio:");
-        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
-        lblTotal.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblTotal.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblTotal.setText("Total:");
         getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-        getContentPane().add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 21, 100, -1));
+        getContentPane().add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 140, -1));
 
         cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar producto..." }));
         cmbProducto.addItemListener(new java.awt.event.ItemListener() {
@@ -117,27 +118,32 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 cmbProductoItemStateChanged(evt);
             }
         });
-        getContentPane().add(cmbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 140, -1));
+        cmbProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProductoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 140, 20));
 
-        lblRPrecio.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblRPrecio.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblRPrecio.setForeground(new java.awt.Color(255, 255, 255));
-        lblRPrecio.setText("Aqui va el precio");
-        getContentPane().add(lblRPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        lblRPrecio.setText("0");
+        getContentPane().add(lblRPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 140, -1));
 
-        lblRTotal.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblRTotal.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblRTotal.setForeground(new java.awt.Color(255, 255, 255));
-        lblRTotal.setText("Aqui va el total");
-        getContentPane().add(lblRTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 199, -1));
+        lblRTotal.setText("0");
+        getContentPane().add(lblRTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 140, -1));
 
-        lblNombreVendedor.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblNombreVendedor.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblNombreVendedor.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreVendedor.setText("Nombre vendedor:");
-        getContentPane().add(lblNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 35));
+        getContentPane().add(lblNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
 
-        lblCantidad.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidad.setText("Cantidad:");
-        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
+        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
 
         btnAgregar.setText("+");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +151,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, -1));
 
         btnEliminar.setText("x");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +159,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
         btnSalir.setText("Cerrar sesión");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +167,7 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
 
         btnConfirmar.setText("Confirmar venta");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,16 +175,15 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
-        lblRNombreVendedor.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
+        lblRNombreVendedor.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblRNombreVendedor.setForeground(new java.awt.Color(255, 255, 255));
-        lblRNombreVendedor.setText("Aqui va el nombre");
-        getContentPane().add(lblRNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(691, 12, 90, -1));
+        getContentPane().add(lblRNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 110, 20));
 
         jScrollPane1.setViewportView(lstCarrito);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 170, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 260, 90));
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -186,13 +191,14 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, 20));
 
+        lblNombreCli.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 14)); // NOI18N
         lblNombreCli.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(lblNombreCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 30));
+        getContentPane().add(lblNombreCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 20));
 
         spnCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(spnCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 50, -1));
+        getContentPane().add(spnCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 50, -1));
 
         jMenu1.setText("Archivo");
 
@@ -265,12 +271,18 @@ public class frmRegistroVenta extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String pro = cmbProducto.getSelectedItem().toString();
+        int precio;
+        int cantidad;
         modelo.addElement(pro);
 
         lstCarrito.setModel(modelo);
 
         prod.insertarFinal(cmbProducto.getSelectedItem().toString(), lblRPrecio.getText(), (int) spnCantidad.getValue());
-
+        lblRTotal.setText((String.valueOf(Integer.parseInt(lblRTotal.getText()) + Integer.parseInt(lblRPrecio.getText()) *
+                Integer.parseInt(spnCantidad.getValue().toString()))));
+//        precio = Integer.parseInt(spnCantidad.getValue().toString());
+//        cantidad = Integer.parseInt(lblRPrecio.getText());
+//        lblRTotal.setText((String.valueOf(Integer.parseInt(lblRTotal.getText()) + cantidad * precio)));
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -350,6 +362,11 @@ public class frmRegistroVenta extends javax.swing.JFrame {
                 this.dispose();
             } else {
                 lblNombreCli.setText("Anónimo");
+                btnAgregar.setEnabled(true);
+                btnConfirmar.setEnabled(true);
+                btnEliminar.setEnabled(true);
+                spnCantidad.setEnabled(true);
+                cmbProducto.setEnabled(true);
             }
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -365,9 +382,13 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-        /*
-        String precio = cmbProducto.getSelectedItem().toString();
-        lblRPrecio.setText(precio);*/
+        ResultSet precio = ln.listarProductosNombre(cmbProducto.getSelectedItem().toString());
+        try {
+                precio.next();
+                lblRPrecio.setText(precio.getString(4));
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }   
     }//GEN-LAST:event_cmbProductoItemStateChanged
 
     private void mniProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniProductoActionPerformed
@@ -375,6 +396,11 @@ public class frmRegistroVenta extends javax.swing.JFrame {
         this.setVisible(false);
         produ.setVisible(true);
     }//GEN-LAST:event_mniProductoActionPerformed
+
+    private void cmbProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmbProductoActionPerformed
 
     /**
      * @param args the command line arguments

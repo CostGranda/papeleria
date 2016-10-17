@@ -214,10 +214,10 @@ public class MenusConsola {
         String producto = null;
         int precio = 0;
         int cantidad;
-        int precioTotal;
+        int precioTotal = 0;
         int cod;
         String opcionCliente;
-        String opcionInsertar;
+        String opcionInsertar = "si";
         String opcionEliminar;
 
         Producto pr = new Producto();
@@ -241,47 +241,49 @@ public class MenusConsola {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-
-        System.out.println("Codigo producto: ");
-        cod = teclado.nextInt();
-        rs = ln.listarProductosCodigo(cod);
-        try {
-            rs.next();
-            System.out.println("Producto: " + rs.getString(2));
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        rs = ln.listarProductosCodigo(cod);
-        try {
-            rs.next();
-            System.out.println("Precio: " + rs.getString(4));
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-
-        System.out.println("Cantidad: ");
-        cantidad = teclado.nextInt();
-        precioTotal = precio * cantidad;
-        pr.insertarFinal(producto, String.valueOf(precio), cantidad);
-        System.out.println("¿Desea eliminar el ultimo producto agregado?");
-        opcionEliminar = teclado.next();
-        if ("si".equals(opcionEliminar)) {
-            pr.eliminarFinal();
-        }
-        System.out.println("¿Desea comprar otro producto?");
-        opcionInsertar = teclado.nextLine();
         while ("si".equals(opcionInsertar)) {
-            System.out.println("Producto: ");
-            producto = teclado.next();
-            System.out.println("Precio producto: ");
-            precio = teclado.nextInt();
-            System.out.println(precio);
+            System.out.println("Codigo producto: ");
+            cod = teclado.nextInt();
+            rs = ln.listarProductosCodigo(cod);
+            try {
+                rs.next();
+                System.out.println("Producto: " + rs.getString(2));
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            rs = ln.listarProductosCodigo(cod);
+            try {
+                rs.next();
+                System.out.println("Precio: " + rs.getString(4));
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
             System.out.println("Cantidad: ");
             cantidad = teclado.nextInt();
             precioTotal = precioTotal + (precio * cantidad);
+            pr.insertarFinal(producto, String.valueOf(precio), cantidad);
+            System.out.println("¿Desea eliminar el ultimo producto agregado?");
+            opcionEliminar = teclado.next();
+            if ("si".equals(opcionEliminar)) {
+                pr.eliminarFinal();
+            }
             System.out.println("¿Desea comprar otro producto?");
-            opcionInsertar = teclado.next();
+            opcionInsertar = teclado.nextLine();
         }
+
+//        while ("si".equals(opcionInsertar)) {
+//            System.out.println("Producto: ");
+//            producto = teclado.next();
+//            System.out.println("Precio producto: ");
+//            precio = teclado.nextInt();
+//            System.out.println(precio);
+//            System.out.println("Cantidad: ");
+//            cantidad = teclado.nextInt();
+//            precioTotal = precioTotal + (precio * cantidad);
+//            System.out.println("¿Desea comprar otro producto?");
+//            opcionInsertar = teclado.next();
+//        }
         System.out.println("Los productos comprados son: ");
         pr.imprimir();
         System.out.println("El precio total es: " + precioTotal);
@@ -431,7 +433,7 @@ public class MenusConsola {
         System.out.print("Ingrese el codigo del producto: ");
         codigo = teclado.next();
         LogicaDeNegocio ln = new LogicaDeNegocio();
-        if(ln.validarSiExisteProductoCodigo(codigo)){
+        if (ln.validarSiExisteProductoCodigo(codigo)) {
             System.out.print("Nombre: ");
             nombre = teclado.next();
             System.out.print("Precio: ");
@@ -445,20 +447,20 @@ public class MenusConsola {
                 descripcion = teclado.next();
             }
             ln.actualizarProducto(nombre, descripcion, precio, cantidadDisponible);
-        }else{
+        } else {
             System.out.println("El producto con el codigo " + codigo + " no existe "
                     + "ingrese de nuevo el codigo");
             editarProducto();
         }
     }//Cerrar editarProducto
-    
-    public void eliminarProducto(){
+
+    public void eliminarProducto() {
         String codigo;
         System.out.print("Codigo: ");
         codigo = teclado.next();
         LogicaDeNegocio ln = new LogicaDeNegocio();
         if (ln.validarSiExisteProductoCodigo(codigo)) {
             ln.eliminarProducto(codigo);
-        }        
+        }
     }//Cerrar eliminar producto
 }
