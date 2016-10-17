@@ -8,7 +8,7 @@ package servidor;
 
 /**
  *
- * @author Quintonorrea
+ * @author Jorge L Granda.
  */
 import java.io.*;
 import java.sql.Connection;

@@ -5,7 +5,6 @@
  */
 package Vista.Formularios;
 
-import Datos.ConexionMySQL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -13,20 +12,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Logica.LogicaDeNegocio;
 import Logica.Vendedores;
-import static Vista.Formularios.clienteUDP.socket;
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import servidor.serializa;
 
 /**
  *
@@ -78,16 +72,11 @@ public class frmLogin extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnRecuperar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,22 +125,17 @@ public class frmLogin extends javax.swing.JFrame {
         txtUser.setBackground(new java.awt.Color(240, 240, 240));
 
         txtPassword.setBackground(new java.awt.Color(240, 240, 240));
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
 
-        jButton1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 255));
-        jButton1.setText("Olvidaste tu contraseña?");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setOpaque(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRecuperar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        btnRecuperar.setForeground(new java.awt.Color(0, 51, 255));
+        btnRecuperar.setText("Olvidaste tu contraseña?");
+        btnRecuperar.setBorder(null);
+        btnRecuperar.setBorderPainted(false);
+        btnRecuperar.setContentAreaFilled(false);
+        btnRecuperar.setOpaque(false);
+        btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRecuperarActionPerformed(evt);
             }
         });
 
@@ -168,7 +152,7 @@ public class frmLogin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(btnRecuperar)
                             .addComponent(btnAceptar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelar)
@@ -195,7 +179,7 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -248,7 +232,7 @@ public class frmLogin extends javax.swing.JFrame {
 //      inicioCliente.lblResultado.setText("Cliente Ok");
     }//iniciar
 
-    public  void enviar(String data) throws IOException, ClassNotFoundException {
+    public void enviar(String data) throws IOException, ClassNotFoundException {
         msg = new byte[data.length()];
         msg = data.getBytes();
         packet = new DatagramPacket(msg, msg.length, new InetSocketAddress("127.0.0.1", 12345));
@@ -259,34 +243,29 @@ public class frmLogin extends javax.swing.JFrame {
 
     }//enviar
 
-    public  void recibir() throws IOException, ClassNotFoundException {
+    public void recibir() throws IOException, ClassNotFoundException {
         /////Recibir
         msgRecibir = new byte[1024];
         packetRecibir = new DatagramPacket(msgRecibir, 1024);
         socket.receive(packetRecibir);
 
-        ///
+        ///Deserializar
         ByteArrayInputStream baos = new ByteArrayInputStream(msgRecibir);
         ObjectInputStream oos = new ObjectInputStream(baos);
         Vendedores vv = (Vendedores) oos.readObject();
-        //
-        System.out.println(vv.getUsuario() + "-" + vv.getClave());
-        JOptionPane.showMessageDialog(rootPane, "La contraseña es: "+ vv.getClave(),  "Contraseña recuperada!", HEIGHT);
+        
+        //Mensaje de 
+        JOptionPane.showMessageDialog(rootPane, "La contraseña es: " + vv.getClave(), "Contraseña recuperada!", JOptionPane.INFORMATION_MESSAGE);
 
     }//recibir
 
-    public static String limpiar(String dato, int tam) {
-        dato = dato.substring(0, tam);
-        dato = dato.trim();
-        return dato;
-    }//limpiar
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
         String usuario = txtUser.getText();
+        if (usuario.equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe Ingresar un usuario");
+            return;
+        }
+        //Inicia el clienteUDP
         try {
             iniciar();
             enviar(usuario);
@@ -295,11 +274,7 @@ public class frmLogin extends javax.swing.JFrame {
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-    }//GEN-LAST:event_formWindowOpened
+    }//GEN-LAST:event_btnRecuperarActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -327,6 +302,7 @@ public class frmLogin extends javax.swing.JFrame {
                 new frmLogin().setVisible(true);
             }
         });
+        //Arrancar el servidor desde el main
         try {
             servidor.servidorUDP.iniciar();
         } catch (IOException | ClassNotFoundException ex) {
@@ -337,7 +313,7 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRecuperar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPopupMenu jPopupMenu1;

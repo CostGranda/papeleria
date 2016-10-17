@@ -11,6 +11,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import Datos.ConexionMySQL;
+
 public class servidorUDP {
 
     static DatagramPacket packet, packetEnviar;
@@ -23,7 +24,6 @@ public class servidorUDP {
         s = new DatagramSocket(12345);
         msg = new byte[1024];
         packet = new DatagramPacket(msg, 1024);
-        System.out.println("Ok");
 
         //
         serializa.accion("");
@@ -44,8 +44,6 @@ public class servidorUDP {
         //se puede validar si existe en la db
         msgEnviar = serializa.accion(dato);
         enviar();
-
-        ////
     }//recibir
 
     public String claveV(String clave) {
@@ -64,7 +62,7 @@ public class servidorUDP {
     }
 
     public static void enviar() throws SocketException, IOException {
-///Enviar
+        ///Enviar
         packetEnviar = new DatagramPacket(msgEnviar, msgEnviar.length, new InetSocketAddress(packet.getAddress(), 12346));
         s.send(packetEnviar);
     }///
