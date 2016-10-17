@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,30 @@ import java.sql.Statement;
  *
  * @author Sebastián Giraldo, Jorge L Granda.
  */
-public class Vendedores {
+public class Vendedores implements Serializable{
+
+    String usuario, clave;
+
+    public Vendedores(String usuario, String clave) {
+        this.usuario = usuario;
+        this.clave = clave;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
 
     /**
      * Este metodo inserta un vendedor en la base de datos.
@@ -54,7 +78,7 @@ public class Vendedores {
     public static int insertarLoginVendedor(Connection con, String usuario, String clave) {
         int cantfilas = 0;
         Statement st;
-        
+
         try {
             st = con.createStatement();
             String strSql;
@@ -99,7 +123,7 @@ public class Vendedores {
         Statement st;
         try {
             st = con.createStatement();
-            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and password = '" + clave + "' and rol = 'vendedor'" ;
+            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and password = '" + clave + "' and rol = 'vendedor'";
             rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
@@ -111,12 +135,25 @@ public class Vendedores {
         ResultSet rs = null;
         Statement st;
         try {
-                st = con.createStatement();
-                String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and rol = 'admin'";
-                rs = st.executeQuery(strSql);
+            st = con.createStatement();
+            String strSql = "SELECT 1 FROM LOGIN WHERE usuario = '" + usuario + "' and rol = 'admin'";
+            rs = st.executeQuery(strSql);
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
         }
         return rs;
-    }    
+    }
+
+    public static ResultSet recuperarClave(Connection con, String usuario) {
+        ResultSet rs = null;
+        Statement st;
+        try {
+            st = con.createStatement();
+            String strSql = "SELECT password FROM LOGIN WHERE usuario = '" + usuario + "';";
+            rs = st.executeQuery(strSql);
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return rs;
+    }
 }
