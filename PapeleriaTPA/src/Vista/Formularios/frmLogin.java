@@ -19,8 +19,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -227,7 +225,7 @@ public class frmLogin extends javax.swing.JFrame {
     public void enviar(String data) throws IOException, ClassNotFoundException {
         msg = new byte[data.length()];
         msg = data.getBytes();
-        packet = new DatagramPacket(msg, msg.length, new InetSocketAddress("127.0.0.1", 12345));
+        packet = new DatagramPacket(msg, msg.length, new InetSocketAddress("54.67.29.193", 12345));
         socket.send(packet);
         System.out.println(data);
 //      inicioCliente.lblResultado.setText("c:envío -> "+data);
@@ -262,9 +260,7 @@ public class frmLogin extends javax.swing.JFrame {
             iniciar();
             enviar(usuario);
         } catch (SocketException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRecuperarActionPerformed
     /**
@@ -294,12 +290,6 @@ public class frmLogin extends javax.swing.JFrame {
                 new frmLogin().setVisible(true);
             }
         });
-        //Arrancar el servidor desde el main
-        try {
-            servidor.servidorUDP.iniciar();
-        } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
