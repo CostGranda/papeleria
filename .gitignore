@@ -1,7 +1,8 @@
 *.class
-build/classes/
-!.netbeans_automatic_build
-!.netbeans_update_resources
+**/build/classes/Datos/
+**/build/classes/Logica/
+**/build/classes/Vista/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
