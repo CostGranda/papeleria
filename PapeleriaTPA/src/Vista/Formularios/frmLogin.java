@@ -19,8 +19,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -91,7 +89,7 @@ public class frmLogin extends javax.swing.JFrame {
         btnAceptar.setBorder(null);
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAceptar.setFocusPainted(false);
         btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAceptar.setIconTextGap(-3);
@@ -110,7 +108,7 @@ public class frmLogin extends javax.swing.JFrame {
         btnCancelar.setBorder(null);
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCancelar.setFocusPainted(false);
         btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCancelar.setIconTextGap(-2);
@@ -128,10 +126,11 @@ public class frmLogin extends javax.swing.JFrame {
 
         btnRecuperar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         btnRecuperar.setForeground(new java.awt.Color(0, 51, 255));
-        btnRecuperar.setText("Olvidaste tu contraseña?");
+        btnRecuperar.setText("¿Olvidaste tu contraseña?");
         btnRecuperar.setBorder(null);
         btnRecuperar.setBorderPainted(false);
         btnRecuperar.setContentAreaFilled(false);
+        btnRecuperar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecuperarActionPerformed(evt);
@@ -227,7 +226,7 @@ public class frmLogin extends javax.swing.JFrame {
     public void enviar(String data) throws IOException, ClassNotFoundException {
         msg = new byte[data.length()];
         msg = data.getBytes();
-        packet = new DatagramPacket(msg, msg.length, new InetSocketAddress("127.0.0.1", 12345));
+        packet = new DatagramPacket(msg, msg.length, new InetSocketAddress("54.67.29.193", 12345));
         socket.send(packet);
         System.out.println(data);
 //      inicioCliente.lblResultado.setText("c:envío -> "+data);
@@ -262,9 +261,7 @@ public class frmLogin extends javax.swing.JFrame {
             iniciar();
             enviar(usuario);
         } catch (SocketException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRecuperarActionPerformed
     /**
@@ -294,12 +291,6 @@ public class frmLogin extends javax.swing.JFrame {
                 new frmLogin().setVisible(true);
             }
         });
-        //Arrancar el servidor desde el main
-        try {
-            servidor.servidorUDP.iniciar();
-        } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
