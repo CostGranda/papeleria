@@ -1,5 +1,7 @@
 *.class
-
+build/classes/
+!.netbeans_automatic_build
+!.netbeans_update_resources
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
