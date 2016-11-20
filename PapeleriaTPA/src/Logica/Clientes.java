@@ -89,7 +89,7 @@ public class Clientes {
             st = con.createStatement();
             String strSql = "SELECT nombre_completo FROM CLIENTE WHERE documento_cliente = '"+documento+"';";
             rs = st.executeQuery(strSql);
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
         return rs;
     }
