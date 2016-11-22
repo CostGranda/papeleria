@@ -1,4 +1,4 @@
-# Papeleria TPA
+# Papeleria TPA [![Build Status](https://travis-ci.com/CostGranda/papeleria.svg?token=59zMMqtt7WAr7sgLu6st&branch=Web)](https://travis-ci.com/CostGranda/papeleria)
 
 ## Descripción general del proyecto
 
