@@ -69,3 +69,7 @@ form[role=login] {
 .form-links a {
 		color: #fff;
 }
+
+#menu2{
+	background: url("../img/fondo2.jpg") no-repeat center center fixed;
+}

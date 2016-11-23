@@ -10,6 +10,6 @@
 	}else{
 		mysqli_free_result($r);
 		mysqli_close($con);
-		header("location:../inicio.html");
+		header("location:../inicio.php");
 	}
 ?>
