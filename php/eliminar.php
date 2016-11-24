@@ -9,7 +9,7 @@
     $num = mysqli_num_rows($r);
     if($num == 0)
     {
-      print ('Producto No existe <a href="../eliminar.html">Regresar</a>');
+      print ('<script>alert(\'El producto no existe!\')</script>');
     }else
     {
       $sql = "delete from PRODUCTO where codigo_producto='$cod'";
@@ -18,6 +18,6 @@
     }
     mysqli_close($link);
   }
-$cod=$_GET['txtCod'];
+$cod=$_POST['txtCod'];
 eliminar($cod);
 ?>

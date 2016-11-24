@@ -12,6 +12,7 @@
       echo "Error seleccionando la base de datos.";
       exit();
    }
+   mysqli_set_charset($link, "utf8");
    return $link;
   }
 ?>

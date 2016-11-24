@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-md-10" id="principal">
 					<center><h1>Eliminar productos</h1></center>
-					<form name="feli" method="GET" action="php/eliminar.php" id="formulario2" class="form-horizontal">
+					<form name="feli" method="POST" action="php/eliminar.php" id="formulario2" class="form-horizontal">
 			            <div class="form-group">
 			              <div class="col-md-offset-4 col-md-4">
 			              <label><input type="hidden" name="" value="">Código: </label>
