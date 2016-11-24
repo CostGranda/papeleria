@@ -9,7 +9,7 @@
     $num = mysqli_num_rows($r);
     if($num == 0)
     {
-      print ('<script>alert(\'El producto no existe!\')</script>');
+      print ('<script>alert(\'El producto no existe!\');history.back();</script>');
     }else
     {
       $sql = "delete from PRODUCTO where codigo_producto='$cod'";

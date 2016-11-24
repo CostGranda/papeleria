@@ -5,9 +5,7 @@
 			$q = "update PRODUCTO set nombre_producto = '$nom', descripcion = '$desc', precio = $pre, disponible_venta = $disp where codigo_producto = $cod";
 			mysqli_query($link,$q);
 			mysqli_close($link);
-			print $q;
-			print 'Dato actualizado';
-			print ('Producto No existe <a href="../inicio.php">Regresar</a>');
+			 print ('<script>alert(\'Dato actualizado!\');location.href="../inicio.php";</script>');
 		}//actualizar
 	$cod = $_GET['txtCod'];
 	$nom = $_GET['txtNom'];
