@@ -9,7 +9,7 @@
     $num = mysqli_num_rows($r);
     if($num == 0)
     {
-      print ('Producto No existe <a href="../eliminar.html">Regresar</a>');
+      print ('Producto No existe <a href="../frmeliminar.php">Regresar</a>');
     }else
     {
       $sql = "delete from PRODUCTO where codigo_producto='$cod'";
