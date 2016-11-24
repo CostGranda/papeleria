@@ -1,6 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+	<script type="text/javascript">
+		function mostrarOcultar(id) {
+			var e = document.getElementById(id);
+			e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+		}
+	</script>
 	<meta charset="UTF-8">
 	<title>Eliminar</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -31,14 +37,15 @@
 			          	<div class="form-group form-inlines">
 			            	<div class="col-md-offset-4 col-md-4">
 			                	<label>
-			                		<input type="button" value="eliminar" class="btn btn-success" onclick="validar()" value="Eliminar">
-			                	</label>
+			                		<button type="button" value="eliminar" class="btn btn-danger" onclick="validar()">Eliminar</button>
+													<button type="button" onclick="javascript:mostrarOcultar('tabla')" class="btn btn-info">Mostrar tabla</button>
+												</label>
 			            	</div>
 			          	</div>
 					</form>
-					<div>
-						<article class"col-md-6">	  
-						<p>  
+					<div id="tabla" style="display:none">
+						<article class"col-md-6">
+						<p>
 							<?php
 							include("php/conexion.php");
 							function listCh()
@@ -47,11 +54,11 @@
 								$result = mysqli_query($link,"SELECT * FROM PRODUCTO;");
 								echo '<table class="table table-bordered table-hover">';
 								echo "<tr>";
-								echo '<th class="info">'.codigo_producto.'</th>';
-								echo '<th class="warning">'.nombre_producto.'</th>';
-								echo '<th class="warning">'.descripcion.'</th>';
-								echo '<th class="warning">'.precio.'</th>';
-								echo '<th class="warning">'.disponible_venta.'</th>';
+								echo '<th class="info">Código</th>';
+								echo '<th class="warning">Nombre</th>';
+								echo '<th class="warning">Descripción</th>';
+								echo '<th class="warning">Precio</th>';
+								echo '<th class="warning">Disponible</th>';
 								echo "</tr>";
 								while ($row = mysqli_fetch_row($result)){
 									echo "<tr>";
@@ -65,7 +72,7 @@
 								echo "</table>";
 							}
 							listCh();
-							?>		
+							?>
 						</p>
 					</article>
 					</div>
@@ -77,4 +84,4 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/eliminar.js"></script>
 </body>
-</html>	
+</html>
