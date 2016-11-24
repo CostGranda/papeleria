@@ -1,25 +1,21 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
 	include("conexion.php");
-	include ("buscar.php");
-	class insertar{
-		static function nuevo($cod, $nom, $desc, $pre, $disp){
-			
-			if(buscar::existe($cod)){
-				print '<b>Producto ya existe </b> <a href = "frmProducto.html">Regresar</a>';
-			}else{
-				$con = Conectarse();
-				$q = "insert into PRODUCTO (codigo_producto, nombre_producto, descripcion, precio, disponible_venta) values ($cod, '$nom', '$desc', $pre, $disp)";
-			mysqli_query($con, $q);
-				print 'Producto registrado <a href = "./inicio.php">Regresar</a>';
-			}//if else
-		}//nuevo
-	}//class
-	$cod = $_GET['txtCod'];
-	$nom = $_GET['txtNom'];
-	$pre = $_GET['txtPrecio'];
-	$disp = $_GET['txtDisponible'];
-	$desc = $_GET['txtDescripcion'];
-	insertar::nuevo($cod, $nom, $desc, $pre, $disp);
+	function nuevo($nom, $desc, $pre, $disp){
+		$link = Conectarse();
+		$q = "select 1 from PRODUCTO where nombre_producto= $nom;";
+		$r = mysqli_query ($link,$q);
+			if(mysqli_num_rows($r) > 0){
+					print '<b>Producto ya existe </b> <a href = "../Inicio.php">Regresar</a>';
+				}else{
+					$q1 = "INSERT INTO PRODUCTO(nombre_producto, descripcion, precio, disponible_venta) values ('$nom', '$desc', $pre, $disp);";
+					mysqli_query($link,$q1);
+				  header('Location: ../inicio.php');
+				}//if else
+				mysqli_close($link);
+			}//nuevo
+		$nom = $_GET['txtNom'];
+		$desc = $_GET['txtDescripcion'];
+		$pre = $_GET['txtPrecio'];
+		$disp = $_GET['txtDisponible'];
+		nuevo($nom, $desc, $pre, $disp);
 ?>

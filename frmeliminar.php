@@ -31,7 +31,7 @@
 			          	<div class="form-group form-inlines">
 			            	<div class="col-md-offset-4 col-md-4">
 			                	<label>
-			                    	<button type="submit" class="btn btn-success" onclick="validar()" value="buscar">Eliminar</button>
+			                		<input type="button" value="eliminar" class="btn btn-success" onclick="validar()" value="Eliminar">
 			                	</label>
 			            	</div>
 			          	</div>

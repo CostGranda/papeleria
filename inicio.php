@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,11 +33,11 @@
 								$result = mysqli_query($link,"SELECT * FROM PRODUCTO;");
 								echo '<table class="table table-bordered table-hover">';
 								echo "<tr>";
-								echo '<th class="info">'.codigo_producto.'</th>';
-								echo '<th class="warning">'.nombre_producto.'</th>';
-								echo '<th class="warning">'.descripcion.'</th>';
-								echo '<th class="warning">'.precio.'</th>';
-								echo '<th class="warning">'.disponible_venta.'</th>';
+								echo '<th class="info">'.Código.'</th>';
+								echo '<th class="warning">'.Nombre.'</th>';
+								echo '<th class="warning">'.Descripción.'</th>';
+								echo '<th class="warning">'.Precio.'</th>';
+								echo '<th class="warning">'.Disponible.'</th>';
 								echo "</tr>";
 								while ($row = mysqli_fetch_row($result)){
 									echo "<tr>";
