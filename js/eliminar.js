@@ -5,7 +5,7 @@ function validar(){
 		return false;
 	}
 	if(confirm("Seguro desea eliminar "+c)){
-		document.feli.submit();	
+		document.feli.submit();
 	}else{
 		return false;
 	}

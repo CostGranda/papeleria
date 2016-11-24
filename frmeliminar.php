@@ -21,8 +21,8 @@
 				<div class="col-md-2">
 					<a class="list-group-item" href="inicio.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Lista de productos</a>
 					<a class="list-group-item" href="insertar.html"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Insertar</a>
-					<a class="list-group-item" href="editar.html"><i class="fa fa-calculator fa-fw" aria-hidden="true"></i>&nbsp; Editar</a>
-					<a class="list-group-item" href="eliminar.html"><i class="fa fa-calendar-o fa-fw" aria-hidden="true"></i>&nbsp; Eliminar</a>
+					<a class="list-group-item" href="editar.php"><i class="fa fa-calculator fa-fw" aria-hidden="true"></i>&nbsp; Editar</a>
+					<a class="list-group-item" href="frmeliminar.php"><i class="fa fa-calendar-o fa-fw" aria-hidden="true"></i>&nbsp; Eliminar</a>
 					<a class="list-group-item" href="index.html"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp; Cerrar sesión</a>
 				</div>
 				<div class="col-md-10" id="principal">
@@ -31,7 +31,7 @@
 			            <div class="form-group">
 			              <div class="col-md-offset-4 col-md-4">
 			              <label><input type="hidden" name="" value="">Código: </label>
-			              	<input name="txtCod" type="number" min="0" class="form-control" placeholder="Ingrese el código del producto">
+			              	<input name="txtCod" type="number" min="0" class="form-control" placeholder="Ingrese el código del producto" required>
 			            	</div>
 			          	</div>
 			          	<div class="form-group form-inlines">
@@ -74,7 +74,7 @@
 							listCh();
 							?>
 						</p>
-					</article>
+						</article>
 					</div>
 				</div>
 			</div>
