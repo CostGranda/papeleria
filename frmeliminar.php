@@ -38,8 +38,8 @@
 			            	<div class="col-md-offset-4 col-md-4">
 			                	<label>
 			                		<button type="button" value="eliminar" class="btn btn-danger" onclick="validar()">Eliminar</button>
-													<button type="button" onclick="javascript:mostrarOcultar('tabla')" class="btn btn-info">Mostrar tabla</button>
-												</label>
+									<button type="button" onclick="javascript:mostrarOcultar('tabla')" class="btn btn-info">Mostrar tabla</button>
+									</label>
 			            	</div>
 			          	</div>
 					</form>

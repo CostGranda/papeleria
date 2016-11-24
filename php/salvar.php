@@ -3,9 +3,14 @@
 	function actualizar($cod, $nom, $desc, $pre, $disp){
 			$link = Conectarse();
 			$q = "update PRODUCTO set nombre_producto = '$nom', descripcion = '$desc', precio = $pre, disponible_venta = $disp where codigo_producto = $cod";
-			mysqli_query($link,$q);
+			$r = mysqli_query($link,$q);
+			
+			if ($r == 0) {
+				print ('<script>alert(\'Dato no actualizado!\');location.href="../frmeditar.php";</script>');
+			}else{
+				print ('<script>alert(\'Dato actualizado!\');location.href="../inicio.php";</script>');
+			}
 			mysqli_close($link);
-			 print ('<script>alert(\'Dato actualizado!\');location.href="../inicio.php";</script>');
 		}//actualizar
 	$cod = $_GET['txtCod'];
 	$nom = $_GET['txtNom'];

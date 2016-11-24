@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<script type="text/javascript">
+		function mostrarOcultar(id) {
+			var e = document.getElementById(id);
+			e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+		}
+	</script>
 	<meta charset="UTF-8">
 	<title>Editar</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -32,11 +38,13 @@
 			            	<div class="col-md-offset-4 col-md-4">
 			                	<label>
 			                    	<button type="submit" class="btn btn-success">Editar</button>
+			                    	<button type="button" onclick="javascript:mostrarOcultar('tabla')" class="btn btn-info">Mostrar tabla</button>
+									</label>
 			                	</label>
 			            	</div>
 			          	</div>
 					</form>
-					<div>
+					<div id="tabla" style="display:none">
 						<article class"col-md-6">	  
 						<p>  
 							<?php

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,11 +13,11 @@
 		<div class="container-fluid list-group">
 			<div class="">
 				<div class="col-md-2">
-					<a class="list-group-item" href="inicio.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Lista de productos</a>
-					<a class="list-group-item" href="insertar.html"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Insertar</a>
-					<a class="list-group-item" href="frmeditar.php"><i class="fa fa-calculator fa-fw" aria-hidden="true"></i>&nbsp; Editar</a>
-					<a class="list-group-item" href="frmeliminar.php"><i class="fa fa-calendar-o fa-fw" aria-hidden="true"></i>&nbsp; Eliminar</a>
-					<a class="list-group-item" href="index.html"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i>&nbsp; Cerrar sesión</a>
+					<a class="list-group-item" href="inicio.php"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp; Lista de productos</a>
+					<a class="list-group-item" href="insertar.html"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>&nbsp; Insertar</a>
+					<a class="list-group-item" href="frmeditar.php"><i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>&nbsp; Editar</a>
+					<a class="list-group-item" href="frmeliminar.php"><i class="fa fa-times fa-fw" aria-hidden="true"></i>&nbsp; Eliminar</a>
+					<a class="list-group-item" href="index.html"><i class="fa fa-user-times fa-fw" aria-hidden="true"></i>&nbsp; Cerrar sesión</a>
 				</div>
 				<div class="col-md-10" id="principal">
 					<center><h1>Lista de productos</h1></center>

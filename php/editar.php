@@ -12,7 +12,6 @@ function ver($cod){
 		$desc = $f['descripcion'];
 		$pre = $f['precio'];
 		$disp = $f['disponible_venta'];
-
 		$formu = '<html><head><title> Editar </title></head>';
 		$formu = $formu.'<link rel="stylesheet" href="../css/estilos.css">';
 		$formu = $formu.'<link rel="stylesheet" href="../css/bootstrap.min.css">';
@@ -51,7 +50,6 @@ function ver($cod){
 		$formu.='<script type="text/javascript" src="../js/jquery.js"></script>';
 		$formu.='<script type="text/javascript" src="../js/bootstrap.min.js"></script>';
 		$formu.='</body></html>';
-
 		mysqli_close($link);
 		print $formu;
 	}else{
