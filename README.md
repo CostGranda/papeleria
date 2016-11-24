@@ -22,6 +22,9 @@ El proyecto debe hacer uso de lo siguiente:
 * Archivos planos.
 * Hilos.
 
+![Image of Yaktocat](http://i.imgur.com/3YVOSU3.png)
+
+
 | Acción a desarrollar | Competencias a evaluar  | Fecha de entrega | Calificación
 | :------------- | :------------ | :------------ | :------------ |
 | Avance 1 de Proyecto (5%) |  Programación Orientada a objetos, programación por niveles, aplicación de URL y archivos planos.  |15/09/2016 | 4.7
